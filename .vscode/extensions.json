@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "danwhitfield.sparql-executor",
+        "stardog-union.vscode-stardog-languages"
+    ]
+}

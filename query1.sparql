@@ -1,0 +1,7 @@
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+
+SELECT ?t
+WHERE  {
+    ab:richard ab:homeTel ?t
+}
+

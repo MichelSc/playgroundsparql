@@ -1,0 +1,14 @@
+{
+    "sparql-executor.endpoints": [
+        {
+            "protocol": "http",
+            "host": "localhost:7200",
+            "path": "/repositories/michfirst",
+            "name": "michellocal",
+            "customHeaders": [],
+            "method": "GET",
+            "queryParameterName": "query",
+            "output": "table"
+        }
+]
+}
