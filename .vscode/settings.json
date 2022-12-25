@@ -3,7 +3,7 @@
         {
             "protocol": "http",
             "host": "localhost:7200",
-            "path": "/repositories/michfirst",
+            "path": "/repositories/mich-test-1",
             "name": "michellocal",
             "customHeaders": [],
             "method": "GET",
