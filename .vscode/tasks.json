@@ -7,11 +7,6 @@
             "label": "Restart graphdb",
             "type": "shell",
             "command": "sudo docker start graphdb-mich",
-        },
-        {
-            "label": "Load data",
-            "type": "shell",
-            "command": "sudo docker exec graphdb-mich importrdf load --help",
-        },
+        }
     ]
 }
