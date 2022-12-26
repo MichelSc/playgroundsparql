@@ -1,2 +1,1 @@
-source .env
-echo file: $1
+echo file: $GRAPHDB_IMAGE

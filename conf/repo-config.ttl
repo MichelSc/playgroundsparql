@@ -8,7 +8,7 @@
 @prefix graphdb: <http://www.ontotext.com/trree/graphdb#>.
 
 [] a rep:Repository ;
-    rep:repositoryID "mich-test-2" ;
+    rep:repositoryID "mich-test-3" ;
     rdfs:label "My first test repo" ;
     rep:repositoryImpl [
     rep:repositoryType "graphdb:SailRepository" ;
