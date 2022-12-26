@@ -7,6 +7,24 @@
             "label": "Restart graphdb",
             "type": "shell",
             "command": "sudo docker start graphdb-mich",
+        },
+        {
+            "label": "Import rdf",
+            "type": "shell",
+            "command": "scripts/importrdf.sh ${relativeFile}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "echo file: ${relativeFile}"
         }
     ]
 }
