@@ -1,0 +1,11 @@
+# return all the implicit statements, and only these ones
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://test/michel#>
+
+SELECT ?graph ?subject ?object 
+FROM NAMED <http://www.ontotext.com/implicit>
+WHERE { 
+    GRAPH ?graph { 
+        ?subject :partOf ?object. 
+    }
+}

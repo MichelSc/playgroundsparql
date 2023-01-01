@@ -1,0 +1,9 @@
+# return all the explictit statements from named graph, and only these ones
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://test/michel#>
+
+SELECT ?graph ?subject ?object 
+FROM NAMED :graph1
+WHERE { 
+   	GRAPH ?graph { ?subject :partOf ?object }. 
+}

@@ -1,0 +1,12 @@
+# return all the explicit statements, and only these ones
+#   those from the default graph thanks to the from named clause, with ?graph bound to explicit pseudo graph
+#   those from the named graphs thanks to the from named clause, with ?graph bound to then named graph
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://test/michel#>
+
+SELECT ?graph ?subject ?object 
+FROM NAMED <http://www.ontotext.com/explicit>
+WHERE { 
+   	GRAPH ?graph { ?subject :partOf ?object }. 
+}

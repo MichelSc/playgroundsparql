@@ -10,5 +10,8 @@
             "queryParameterName": "query",
             "output": "table"
         }
-]
+],
+"files.associations": {
+    "*.rj": "json"
+}
 }
