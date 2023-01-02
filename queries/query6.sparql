@@ -1,0 +1,10 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://test/michel#>
+SELECT ?subject ?object 
+FROM NAMED <http://www.ontotext.com/implicit>
+FROM NAMED <http://www.ontotext.com/explicit>
+#FROM NAMED :graph1
+WHERE { 
+#    GRAPH :graph1 { ?subject :partOf ?object. }
+    GRAPH <http://www.ontotext.com/implicit> { ?subject :partOf ?object. }
+}
