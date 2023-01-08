@@ -1,0 +1,11 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://test/michel#>
+
+INSERT DATA { 
+    GRAPH :graph1 {
+        :hand :partOf :arm .
+        :arm :partOf :body .
+        :partOf a owl:ObjectProperty;
+                a owl:TransitiveProperty .
+    }
+}

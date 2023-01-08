@@ -1,0 +1,11 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://be.fm.codesigns/michel/playground/prop#>
+
+SELECT ?subject  ?object 
+WHERE { 
+   	?subject rdf:type :Sample.
+    OPTIONAL { 
+        ?subject :breakStress ?object
+    }
+}
