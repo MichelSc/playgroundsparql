@@ -1,6 +1,11 @@
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX : <http://be.fm.codesigns/michel/playground/prop#>
+PREFIX : <http://test/michel#>
 
 INSERT DATA { 
-   	:Sample3 rdf:type mich:Sample.
+    GRAPH :graph1 {
+        :hand :partOf :arm .
+        :arm :partOf :body .
+        :partOf a owl:ObjectProperty;
+                a owl:TransitiveProperty .
+    }
 }

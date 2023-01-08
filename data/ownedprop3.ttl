@@ -1,0 +1,39 @@
+@prefix : <http://be.fm.codesigns/michel/playground/prop#> .
+@prefix ab: <http://learningsparql.com/ns/addressbook#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix path: <http://www.ontotext.com/path#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix meta: <https://w3id.org/linkml/meta/> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+
+:OwnedPropertyOntology a owl:Ontology;
+  rdfs:label "OwnedProperty";
+  meta:generation_date "2023-01-08";
+  meta:metamodel_version "0.0.1" .
+
+meta:breakStress a owl:DatatypeProperty;
+  rdfs:range xsd:integer .
+
+:Sample a owl:Class, meta:ClassDefinition;
+  rdfs:subClassOf _:node1 .
+
+_:node1 a owl:Restriction;
+  owl:onProperty :breakStress;
+  owl:cardinality 1 .
+
+:Sample1 a :Sample;
+  :breakStress 10 .
+
+:Sample2 a :Sample;
+  :breakStress 11, 12, 13 .
+
+:Sample3 a :Sample .
+
+:Sample4 a :Sample .
