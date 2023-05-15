@@ -5,16 +5,17 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX onto: <http://www.ontotext.com/>
 prefix mm: <http://www.flandersmake.be/ontology/mm#> 
 
-SELECT ?prop ?class
+SELECT ?prop ?class ?p ?v
 where {
     ?prop rdf:type rdf:Property.
-    ?class rdf:type rdfs:Class.
+    ?class rdf:type owl:Class.
     ?prop rdfs:domain ?class.
+    ?class ?p ?v.
     MINUS {
         ?prop rdfs:domain ?other.
         ?other rdfs:subClassOf ?class.
         MINUS {
-            ?class rdfs:subClassOf ?other 
+            ?class rdfs:subClassOf ?other.
         } 
     } 
     FILTER( !STRSTARTS(STR(?prop) , 'http://www.w3.org'))

@@ -11,7 +11,11 @@
 @prefix sesame: <http://www.openrdf.org/schema/sesame#> .
 @prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
 @prefix accnc: <http://fm.be/dtdesign/acncn#> .
-@prefix mm: <http://fm.be/dtdesign/upperontology#> .
+@prefix mm: <http://www.flandersmake.be/ontology/mm#> .
+
+accnc:Part rdf:type owl:Class.
+accnc:CMMExec rdf:type owl:Class.
+accnc:CNCExec rdf:type owl:Class.
 
 accnc:part	rdf:type owl:ObjectProperty ;
 			rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( accnc:CMMExec accnc:CNCExec ) ] ;
