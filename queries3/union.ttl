@@ -1,0 +1,23 @@
+@prefix : <http://be.fm.codesigns/michel/playground/prop#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix path: <http://www.ontotext.com/path#> .
+@prefix meta: <https://w3id.org/linkml/meta/> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix accnc: <http://fm.be/dtdesign/acncn#> .
+@prefix mm: <http://fm.be/dtdesign/upperontology#> .
+
+accnc:part	rdf:type owl:ObjectProperty ;
+			rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( accnc:CMMExec accnc:CNCExec ) ] ;
+			rdfs:range accnc:Part .
+
+accnc:CMMExec mm:ownedProperty accnc:part.
+accnc:CNCExec mm:ownedProperty accnc:part.
+
+
