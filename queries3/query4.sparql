@@ -6,14 +6,11 @@ PREFIX onto: <http://www.ontotext.com/>
 prefix mm: <http://www.flandersmake.be/ontology/mm#> 
 prefix accnc: <http://fm.be/dtdesign/acncn#>
 
-SELECT ?prop ?class ?isblank ?class1 ?class2
+SELECT ?prop ?class ?isblank ?classi ?other2
 where {
     ?prop rdf:type rdf:Property.
     # ?class rdf:type owl:Class.
     ?prop rdfs:domain ?class.
-    OPTIONAL{
-        ?class  owl:unionOf ( ?class1 ?class2 ) .
-    }
     bind ( isblank(?class) as ?isblank )
     MINUS {
         ?prop rdfs:domain ?other.
@@ -22,6 +19,16 @@ where {
             ?class rdfs:subClassOf ?other.
         } 
     } 
+    ?classi rdfs:subClassOf ?class.
+    filter ( ?classi != ?class)
+    filter not exists 
+    {
+        ?other2 rdfs:subClassOf ?class.
+        ?classi rdfs:subClassOf ?other2.
+        filter ( ?other2 != ?classi)
+        filter ( ?other2 != ?class)
+    }
     FILTER( !STRSTARTS(STR(?prop) , 'http://www.w3.org'))
     # VALUES ?class2 { owl:Nothing accnc:CNCExec accnc:CMMExec }
+    # values ?classi { owl:Nothing }
  }

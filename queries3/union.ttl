@@ -15,12 +15,17 @@
 
 accnc:Part rdf:type owl:Class.
 accnc:CxExec rdf:type owl:Class.
+accnc:CMMExec rdf:type owl:Class.
+accnc:CNCExec rdf:type owl:Class.
 accnc:CMMExec rdfs:subClassOf accnc:CxExec.
 accnc:CNCExec rdfs:subClassOf accnc:CxExec.
 
+# accnc:UnionExec rdf:type owl:Class.
+# accnc:UnionExec owl:unionOf ( accnc:CMMExec accnc:CNCExec ).
 
 accnc:part	rdf:type owl:ObjectProperty ;
 			rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( accnc:CMMExec accnc:CNCExec ) ] ;
+			rdfs:domain accnc:UnionExec ;
 			# rdfs:domain accnc:CxExec ;
 			rdfs:range accnc:Part .
 

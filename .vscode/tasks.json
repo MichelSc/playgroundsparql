@@ -6,17 +6,18 @@
         {
             "label": "Start graphdb",
             "type": "shell",
-            "command": "scripts/startgraphdb.sh",
+            "command": "scripts/startgraphdb.sh"
         },
         {
             "label": "Stop graphdb",
             "type": "shell",
             "command": ". .env; echo $ROOT_PWD | sudo -S docker stop $GRAPHDB_CONTAINER",
+            "problemMatcher": []
         },
         {
             "label": "Restart graphdb",
             "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER",
+            "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
         },
         {
             "label": "Import rdf",

@@ -1,0 +1,16 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX onto: <http://www.ontotext.com/>
+prefix mm: <http://www.flandersmake.be/ontology/mm#> 
+prefix accnc: <http://fm.be/dtdesign/acncn#>
+
+SELECT ?sub ?p ?super
+where {
+        ?sub ?p ?super.
+    # values ?classi { owl:UnionExec }
+    values ?super {accnc:UnionExec}
+    FILTER( !STRSTARTS(STR(?sub) , 'http://www.w3.org') || ?sub in (owl:Nothing, owl:Thing))
+    FILTER( !STRSTARTS(STR(?super) , 'http://www.w3.org') || ?super in (owl:Nothing, owl:Thing))
+ }
