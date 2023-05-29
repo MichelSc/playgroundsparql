@@ -1,0 +1,24 @@
+PREFIX meta: <https://w3id.org/linkml/meta/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX mich: <http://be.fm.codesigns/michel/playground/strict#>
+
+#SELECT (COUNT(*) as ?count) ?i ?c 
+SELECT  ?i ?c ?sc
+WHERE {
+    ?i rdf:type mich:cab.
+    ?i rdf:type ?c.
+    OPTIONAL { 
+        ?sc rdfs:subClassOf ?c.
+        ?i rdf:type ?sc.
+        FILTER (?c != ?sc)
+    }
+    #VALUES ?i { mich:ia }
+    #VALUES ?c { mich:ca1 }
+    FILTER ( ! BOUND(?sc) )
+}
+#GROUP BY ?i ?c
+#HAVING( COUNT(*)=1)

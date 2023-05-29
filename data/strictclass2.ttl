@@ -1,0 +1,31 @@
+@prefix meta: <https://w3id.org/linkml/meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mich: <http://be.fm.codesigns/michel/playground/strict#>.
+
+mich:StrictClassOntology a owl:Ontology ;
+    rdfs:label "StrictClass" ;
+    meta:generation_date "2023-03-25" ;
+    meta:metamodel_version "0.0.1" .
+
+mich:ia rdf:type mich:ca1.
+mich:ib rdf:type mich:cb1.
+
+mich:cab rdf:type owl:Class.
+
+mich:ca0 rdfs:subClassOf mich:cab.
+mich:cb0 rdfs:subClassOf mich:cab.
+
+mich:ca1 rdfs:subClassOf mich:ca0.
+mich:ca1 rdfs:subClassOf mich:cb0.
+mich:cb1 rdfs:subClassOf mich:ca0.
+mich:cb1 rdfs:subClassOf mich:cb0.
+
+mich:ca2 rdfs:subClassOf mich:ca1.
+mich:ca2 rdfs:subClassOf mich:cb1.
+mich:cb2 rdfs:subClassOf mich:ca1.
+mich:cb2 rdfs:subClassOf mich:cb1.
+
+

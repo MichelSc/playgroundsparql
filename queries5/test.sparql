@@ -1,0 +1,20 @@
+PREFIX meta: <https://w3id.org/linkml/meta/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX mich: <http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#>
+
+select ?s ?p ?o
+where {
+    ?s rdfs:subClassOf ?o.
+    minus {
+        ?s owl:equivalentClass ?o.
+    }
+    # filter ( ?s not in ( owl:Thing, owl:Nothing))
+    filter( !STRSTARTS(STR(?s) , 'http://www.w3.org'))
+    filter( !STRSTARTS(STR(?o) , 'http://www.w3.org'))
+}
+
+#

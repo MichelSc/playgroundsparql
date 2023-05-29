@@ -1,0 +1,62 @@
+@prefix : <http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2/> .
+
+<http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2> rdf:type owl:Ontology .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#C0
+:C0 rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#C1
+:C1 rdf:type owl:Class ;
+    rdfs:subClassOf :C0 ,
+                    :D0 .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#C2
+:C2 rdf:type owl:Class ;
+    rdfs:subClassOf :C1 ,
+                    :D1 .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#D0
+:D0 rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#D1
+:D1 rdf:type owl:Class ;
+    rdfs:subClassOf :C0 ,
+                    :D0 .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#D2
+:D2 rdf:type owl:Class ;
+    rdfs:subClassOf :C1 ,
+                    :D1 .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#D0a
+:D0a rdf:type owl:NamedIndividual ,
+              :D0 .
+
+
+###  http://www.semanticweb.org/michel/ontologies/2023/4/untitled-ontology-2#D0b
+:D0b rdf:type owl:NamedIndividual ,
+              :D0 .
+
+
+:strictSubClassOff rdfs:subPropertyOf rdfs:subClassOf.
+:strictSubClassOff owl:propertyDisjointWith rdfs:equivalentClassOf.

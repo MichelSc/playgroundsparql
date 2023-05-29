@@ -3,8 +3,8 @@
         {
             "protocol": "http",
             "host": "localhost:7200",
-            "path": "/repositories/mich-test-3",
-            "name": "michellocal",
+            "path": "/repositories/mich-test-4",
+            "name": "michel strict class",
             "customHeaders": [],
             "method": "GET",
             "queryParameterName": "query",
