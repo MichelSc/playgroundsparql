@@ -18,26 +18,6 @@ mm:dimensionProperty
     rdfs:range mm:Dimension; 
     rdfs:domain rdf:Property. 
 
-_:o  rdf:type                mm:Observable .
-_:o  mm:observableDimension  _:d.
-_:d  mm:dimensionProperty    _:p.
-
-# constraints: the associated property must be related to the observable
-_:p  rdfs:domain     _:pd.
-_:o  rdfs:subClassOf _:pd. 
-
-# given data
-_:o1 rdf:type _:o.
-_:s1 rdf:type rdf:Statement.
-_:s1 rdf:subject _:o1.
-_:s1 rdf:predicate _:p.
-_:s1 rdf:object _:v1.
-
-# derivation
-_:s2 rdf:type rdf:Statement.
-_:s2 rdf:subject _:o1.
-_:s2 rdf:predicate _:d.
-_:s2 rdf:object _:v1.
 
 # actual data
 :Sample rdf:type mm:Observable.
