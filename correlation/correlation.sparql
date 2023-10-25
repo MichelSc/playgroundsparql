@@ -1,0 +1,35 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX corr: <http://www.flandersmake.be/ontology/correlation/upper#> 
+PREFIX jml: <http://www.flandersmake.be/ontology/correlation/jml#> 
+PREFIX jmlc: <http://www.flandersmake.be/ontology/correlation/jmlc#> 
+
+# Get the supspected influences for the ontology at hand
+SELECT ?influence ?freeProp ?dependentProp ?forGroup
+WHERE {
+    ?influence 
+        rdf:type corr:Correlation;
+        corr:freeProperty ?freeProp;
+        corr:dependentProperty ?dependentProp.
+    OPTIONAL {
+        ?influence corr:groupProperty ?forGroup.
+    }
+}
+
+# Get the data for a selected influence
+SELECT ?context ?valueFrom ?valueTo ?forGroup
+WHERE {
+    jmlc:my_selected_influence 
+        corr:freeProperty ?freeProp;
+        corr:dependentProperty ?dependentProp.
+    ?context 
+        rdf:type jmlc:my_selected_influence;
+        ?freeProp ?valueFrom;
+        ?dependentProperty ?valueTo.
+    OPTiONAL {
+        jmlc:my_selected_influence corr:groupProperty ?groupProp.
+        ?context ?groupProp ?forGroup.
+    }
+}
