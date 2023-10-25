@@ -1,0 +1,21 @@
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+prefix mm:   <http://www.flandersmake.be/ontology/mm#> 
+prefix :     <http://www.flandersmake.be/ontology/mich#>
+
+SELECT ?o1 ?v1
+where {
+    values ?d { :DimBreakstress }
+    # this is queried at model load time
+    ?o  rdf:type                mm:Observable .
+    ?o  mm:observableDimensions ?d.
+    ?d  mm:dimensionProperty    ?p.
+
+    # this is generated at query time
+    ?o1 rdf:type                ?o.
+    ?o1 ?p                      ?v1.
+
+    # ?o1 rdf:type :Sample.
+ }
