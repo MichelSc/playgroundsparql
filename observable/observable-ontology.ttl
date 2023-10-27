@@ -14,45 +14,33 @@
 #    Observable
 #################################################################
 
-###  http://www.flandersmake.be/ontology/mm#ObservableObservations
+mm:Observable 
+    rdfs:subClassOf owl:Class ;
+    rdf:type owl:Class .
+    
 mm:observableObservations 
-    rdf:type 
-        owl:ObjectProperty ;
-    rdfs:domain 
-        mm:Observable ;
-    rdfs:range 
-        mm:Observation .
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain mm:Observable ;
+    rdfs:range mm:Observation .
 
 ###  http://www.flandersmake.be/ontology/mm#ObservableDimensions
 mm:observableContexts 
-    rdf:type 
-        owl:ObjectProperty ;
-    rdfs:subPropertyOf 
-        owl:topObjectProperty ;
-    rdfs:domain 
-        mm:Observable ;
-    rdfs:range 
-        mm:ObservableContext .
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain mm:Observable ;
+    rdfs:range  mm:ObservableContext .
 
 mm:observableProperties 
-    rdf:type 
-        owl:ObjectProperty ;
-    rdfs:subPropertyOf 
-        owl:topObjectProperty ;
-    rdfs:domain 
-        mm:Observable ;
-    rdfs:range 
-        mm:Property .
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain  mm:Observable ;
+    rdfs:range   mm:Property .
 
 mm:observableInfluences
-    rdf:type 
-        owl:ObjectProperty ;
-    rdfs:subPropertyOf 
-        owl:topObjectProperty ;
-    rdfs:domain 
-        mm:Observable ;
-    rdfs:range 
-        mm:Influence .
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain mm:Observable ;
+    rdfs:range mm:Influence .
 
 #################################################################
 #    ObservableContext
@@ -61,9 +49,10 @@ mm:observableInfluences
 # an ObservableContext provides a context to be observed in a contextual class
 mm:ObservableContext 
     rdf:type owl:Class ;
-    rdfs:subClassOf rdf:Property . # its elements are properties, associating the contextual class with its observable contexts
+    rdfs:subClassOf owl:ObjectProperty . # its elements are properties, associating the contextual class with its observable contexts
 
 mm:ObservableContextNavigation
+    rdf:type owl:Class ;
     rdfs:subClassOf mm:ObservableContext .
 
 mm:ObservableContextNavigationPath 
@@ -71,7 +60,7 @@ mm:ObservableContextNavigationPath
     rdfs:subClassOf rdf:List .
 
 mm:ObservableContextNavigationPathElement 
-    rdf:type  owl:Class .
+    rdf:type owl:Class .
 
 mm:observableContextNavigationPathFirst 
     rdf:type 
@@ -85,16 +74,11 @@ mm:observableContextNavigationPathFirst
     rdfs:range 
         mm:ObservableContextNavigationPathElement .
 
-###  http://www.flandersmake.be/ontology/mm#DimensionNavigationPathNavigationPath
 mm:observableContextNavigationNavigationPath 
-    rdf:type 
-        owl:ObjectProperty ;
-    rdfs:domain 
-        mm:ObservableContextNavigation ;
-    rdfs:range 
-        mm:ObservableContextNavigationPath .
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain mm:ObservableContextNavigation ;
+    rdfs:range  mm:ObservableContextNavigationPath .
 
-###  http://www.flandersmake.be/ontology/mm#DimensionNavigationPathRest
 mm:observableContextNavigationPathRest 
     rdf:type 
         owl:ObjectProperty ,
@@ -119,7 +103,7 @@ mm:observableContextNavigationPathElementProperty
     rdfs:domain 
         mm:ObservableContextNavigationPathElementProperty ;
     rdfs:range 
-        rdf:Property .
+        owl:ObjectProperty .
 
 ###  http://www.flandersmake.be/ontology/mm#DimensionNavigationPathElementDirect
 mm:observableContextNavigationPathElementDirect 
@@ -145,6 +129,47 @@ mm:observableContextNavigationPathElementDowncast
         mm:ObservableContextNavigationPathElementDowncast ;
     rdfs:range 
         owl:Class .
+
+#################################################################
+#    Dimension
+#################################################################
+
+# a Dimension associates a value to an Observable via an ObservableContext
+mm:Dimension 
+    rdf:type owl:Class ;
+    rdfs:subClassOf owl:DatatypeProperty . # its elements are properties, associating the contextual class with its observable values
+mm:dimensionContext 
+    rdf:type 
+        owl:ObjectProperty ,    
+        owl:FunctionalProperty ;
+    rdfs:domain 
+        mm:Dimension ;
+    rdfs:range 
+        mm:ObservableContext .
+
+mm:DimensionProperty 
+    rdf:type owl:Class ;
+    rdfs:subClassOf mm:Dimension .
+mm:dimensionProperty 
+    rdf:type 
+        owl:ObjectProperty ,    
+        owl:FunctionalProperty ;
+    rdfs:domain 
+        mm:DimensionProperty ;
+    rdfs:range 
+        owl:DatatypeProperty .
+
+mm:DimensionDimension 
+    rdf:type owl:Class ;
+    rdfs:subClassOf mm:Dimension .
+mm:dimensiondimension 
+    rdf:type 
+        owl:ObjectProperty ,    
+        owl:FunctionalProperty ;
+    rdfs:domain 
+        mm:DimensionDimension ;
+    rdfs:range 
+        mm:Dimension .
 
 #################################################################
 #    Observation
@@ -255,10 +280,6 @@ mm:observedInfluence
         mm:Observation ;
     rdfs:range 
         mm:Influence .
-
-#################################################################
-#    Dimension
-#################################################################
 
 
 
