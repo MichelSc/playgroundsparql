@@ -16,6 +16,7 @@
 
 mm:Observable 
     rdfs:subClassOf owl:Class ;
+    rdfs:subClassOf mm:ObservableContext ;
     rdf:type owl:Class .
     
 mm:observableObservations 
