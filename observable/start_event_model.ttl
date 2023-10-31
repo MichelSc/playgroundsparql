@@ -52,22 +52,21 @@ st:CuringStep
     rdf:type owl:Class ;
     rdfs:subClassOf st:Step .
 
-st:EventSubject 
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain st:Event ;
-    rdfs:range st:Asset .
-
-st:EventPhase 
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain st:Event ;
-    rdfs:range st:Phase .
 
 
 #################################################################
 #    Properties
 #################################################################
+
+st:start 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:dateTime .
+
+st:temperature 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:float .
 
 st:assetBreakstress 
     rdf:type owl:DatatypeProperty ;
@@ -80,9 +79,9 @@ st:assetName
     rdfs:domain st:Asset ;
     rdfs:range xsd:string .
 
-st:temperature 
+st:assetWeight 
     rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain st:Asset ;
     rdfs:range xsd:float .
 
 st:assetTemperature 
@@ -90,20 +89,17 @@ st:assetTemperature
     rdfs:subPropertyOf st:temperature ;
     rdfs:domain st:Asset .
 					
-st:curingStepTemperature
-	rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf st:temperature ;
-    rdfs:domain st:CuringStep .
+st:eventSubject 
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain st:Event ;
+    rdfs:range st:Asset .
 
-st:assetWeight 
-    rdf:type owl:DatatypeProperty ;
-    rdfs:domain st:Asset ;
-    rdfs:range xsd:float .
-
-st:start 
-    rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf owl:topDataProperty ;
-    rdfs:range xsd:dateTime .
+st:eventPhase 
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain st:Event ;
+    rdfs:range st:Phase .
 
 st:eventStart 
     rdf:type owl:DatatypeProperty ;
@@ -115,6 +111,10 @@ st:stepStart
     rdfs:subPropertyOf st:eventStart ;
     rdfs:domain st:Step .
 
+st:curingStepTemperature
+	rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf st:temperature ;
+    rdfs:domain st:CuringStep .
 
 #################################################################
 #    Observable
@@ -130,18 +130,12 @@ st:DAssetCuringTemperature
   mm:dimensionContext st:CAssetCuringStep;
   mm:dimensionProperty st:curingStepTemperature. 
 
-st:Asset mm:observableContexts st:CAssetCuringStep.
-
 st:CAssetCuringStep 
+    mm:observableContextObservable st:Asset;
     mm:observableContextNavigationNavigationPath [  
         mm:navigationPathFirst [    
             mm:navigationPathElementDirect false;
-            mm:navigationPathElementProperty st:EventSubject
+            mm:navigationPathElementProperty st:eventSubject
         ];
         mm:navigationPathRest rdf:nil
     ].
-
-
-
-
-   

@@ -14,9 +14,9 @@ Axioms
 
 	<mm:ObservableContext> <rdfs:subClassOf> <owl:ObjectProperty>
 
-	<mm:observableContexts> <rdf:type> <rdf:Property>
-	<mm:observableContexts> <rdf:range> <mm:Observable>
-	<mm:observableContexts> <rdf:domain> <mm:ObservableContext>
+	<mm:observableContextObservable> <rdf:type> <rdf:Property>
+	<mm:observableContextObservable> <rdf:range> <mm:ObservableContext>
+	<mm:observableContextObservable> <rdf:domain> <mm:Observable>
 
 	<mm:ObservableContextNavigation> <rdfs:subClassOf> <mm:ObservableContext>
 		
@@ -63,7 +63,7 @@ Rules
 Id: self_context
   o <rdf:type> <mm:Observable>
   -------------------------------
-  o <mm:observableContexts> o
+  o <mm:observableContextObservable> o
 
 Id: self_context_semantics
   o <rdf:type> <mm:Observable>
@@ -72,7 +72,7 @@ Id: self_context_semantics
   o1 o o1
 
 Id: context_observable_navigation_path
-  o <mm:observableContexts> c
+  c <mm:observableContextObservable> o
   c <mm:observableContextNavigationNavigationPath> p
   o1 <rdf:type> o
   o1 p o2

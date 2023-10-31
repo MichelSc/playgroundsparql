@@ -19,26 +19,25 @@ mm:Observable
     rdfs:subClassOf owl:Class ;
     rdfs:subClassOf mm:ObservableContext .
     
-mm:observableObservations 
-    rdf:type    rdf:Property ;
-    rdfs:domain mm:Observable ;
-    rdfs:range  mm:Observation .
+# mm:observableObservations 
+#     rdf:type    rdf:Property ;
+#     rdfs:domain mm:Observable ;
+#     rdfs:range  mm:Observation .
 
-###  http://www.flandersmake.be/ontology/mm#ObservableDimensions
-mm:observableContexts 
-    rdf:type    rdf:Property ;
-    rdfs:domain mm:Observable ;
-    rdfs:range  mm:ObservableContext .
+# mm:observableContexts 
+#     rdf:type    rdf:Property ;
+#     rdfs:domain mm:Observable ;
+#     rdfs:range  mm:ObservableContext .
 
-mm:observableProperties 
-    rdf:type     rdf:Property ;
-    rdfs:domain  mm:Observable ;
-    rdfs:range   mm:Property .
+# mm:observableProperties 
+#     rdf:type     rdf:Property ;
+#     rdfs:domain  mm:Observable ;
+#     rdfs:range   mm:Property .
 
-mm:observableInfluences
-    rdf:type    rdf:Property ;
-    rdfs:domain mm:Observable ;
-    rdfs:range  mm:Influence .
+# mm:observableInfluences
+#     rdf:type    rdf:Property ;
+#     rdfs:domain mm:Observable ;
+#     rdfs:range  mm:Influence .
 
 #################################################################
 #    ObservableContext
@@ -47,6 +46,11 @@ mm:observableInfluences
 # an ObservableContext provides a context to be observed in a contextual class
 mm:ObservableContext 
     rdfs:subClassOf owl:ObjectProperty . # its elements are properties, associating the contextual class with its observable contexts
+
+mm:observableContextObservable 
+    rdf:type    rdf:Property ;
+    rdfs:domain mm:ObservableContext ;
+    rdfs:range  mm:Observable .
 
 mm:ObservableContextNavigation
     rdfs:subClassOf mm:ObservableContext .
