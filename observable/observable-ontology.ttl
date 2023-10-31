@@ -54,38 +54,38 @@ mm:ObservableContextNavigation
 mm:observableContextNavigationNavigationPath 
     rdf:type    owl:ObjectProperty ;
     rdfs:domain mm:ObservableContextNavigation ;
-    rdfs:range  mm:ObservableContextNavigationPath .
+    rdfs:range  mm:NavigationPath .
 
-mm:ObservableContextNavigationPath 
+mm:NavigationPath 
     rdfs:subClassOf rdf:List .
 
-mm:ObservableContextNavigationPathElement 
+mm:NavigationPathElement 
     rdf:type rdfs:Class .
 
-mm:observableContextNavigationPathFirst 
+mm:navigationPathFirst 
     rdfs:subPropertyOf rdf:first;
-    rdfs:domain mm:ObservableContextNavigationPath ;
-    rdfs:range mm:ObservableContextNavigationPathElement .
+    rdfs:domain mm:NavigationPath ;
+    rdfs:range mm:NavigationPathElement .
 
-mm:ObservableContextNavigationPathElementProperty 
-    rdfs:subClassOf mm:ObservableContextNavigationPathElement .
+mm:NavigationPathElementProperty 
+    rdfs:subClassOf mm:NavigationPathElement .
 
-mm:observableContextNavigationPathElementProperty 
+mm:navigationPathElementProperty 
     rdf:type    rdf:Property;
-    rdfs:domain mm:ObservableContextNavigationPathElementProperty ;
+    rdfs:domain mm:NavigationPathElementProperty ;
     rdfs:range  owl:ObjectProperty .
 
-mm:observableContextNavigationPathElementDirect 
+mm:navigationPathElementDirect 
     rdf:type    rdf:Property ;
-    rdfs:domain mm:ObservableContextNavigationPathElementProperty ;
+    rdfs:domain mm:NavigationPathElementProperty ;
     rdfs:range  xsd:boolean .
 
-mm:ObservableContextNavigationPathElementDowncast
-    rdfs:subClassOf mm:ObservableContextNavigationPathElement .
+mm:NavigationPathElementDowncast
+    rdfs:subClassOf mm:NavigationPathElement .
 
-mm:observableContextNavigationPathElementDowncast
+mm:navigationPathElementDowncast
     rdf:type    rdf:Property ;
-    rdfs:domain mm:ObservableContextNavigationPathElementDowncast ;
+    rdfs:domain mm:NavigationPathElementDowncast ;
     rdfs:range  owl:Class .
 
 #################################################################

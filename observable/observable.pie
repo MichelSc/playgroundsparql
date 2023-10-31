@@ -65,7 +65,7 @@ Id: self_context_semantics
   -------------------------------
   o1 o o1
 
-Id: navigation_path_context_observable
+Id: context_observable_navigation_path
   o <mm:observableContexts> c
   c <mm:observableContextNavigationNavigationPath> p
   o1 <rdf:type> o
@@ -74,38 +74,36 @@ Id: navigation_path_context_observable
   o1 c o2
 
 Id: navigation_path_context_not_nil
-  c <mm:observableContextNavigationPathFirst> f
-  c <mm:observableContextNavigationPathRest> r [Constraint t != <rdf:nil>]
+  p <mm:navigationPathFirst> f
+  p <mm:navigationPathRest> r [Constraint t != <rdf:nil>]
   o1 f o2
   o2 r o3
   -------------------------------
-  o1 c o3
-
+  o1 p o3
 
 Id: navigation_path_context_nil
-  c <mm:observableContextNavigationPathFirst> f
-  c <mm:observableContextNavigationPathRest> <rdf:nil>
+  p <mm:navigationPathFirst> f
+  p <mm:navigationPathRest> <rdf:nil>
   o1 f o2
   -------------------------------
-  o1 c o2²
+  o1 p o2
 
 Id: navigation_path_element_direct_prop
-  e <mm:observableContextNavigationPathElementProperty> p
-  e  <mm:observableContextNavigationPathElementDirect> true
+  e <mm:navigationPathElementProperty> p
+  e <mm:navigationPathElementDirect> true
   o1 p o2
   -------------------------------
   o1 e o2
 
 Id: navigation_path_element_reverse_prop
-  e <mm:observableContextNavigationPathElementProperty> p
-  e <mm:observableContextNavigationPathElementDirect> false
+  e <mm:navigationPathElementProperty> p
+  e <mm:navigationPathElementDirect> false
   o2 p o1
   -------------------------------
   o1 e o2
 
 Id: navigation_path_element_downcast
-  e <rdf:type> <mm:ObservableContextNavigationPathElementDowncast>
-  e <mm:observableContextNavigationPathElementDowncast> c
+  e <mm:navigationPathElementDowncast> c
   o1 <rdf:type> c
   -------------------------------
   o1 e o1
