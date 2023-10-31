@@ -81,7 +81,7 @@ Id: context_observable_navigation_path
 
 Id: navigation_path_context_not_nil
   p <mm:navigationPathFirst> f
-  p <mm:navigationPathRest> r [Constraint t != <rdf:nil>]
+  p <mm:navigationPathRest> r [Constraint r != <rdf:nil>]
   o1 f o2
   o2 r o3
   -------------------------------

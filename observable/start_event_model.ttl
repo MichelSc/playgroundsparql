@@ -121,4 +121,27 @@ st:stepStart
 #################################################################
 
 st:Asset rdf:type mm:Observable.
+
+st:DAssetBreakStress 
+  mm:dimensionContext st:Asset;
+  mm:dimensionProperty st:assetBreakstress. 
+
+st:DAssetCuringTemperature
+  mm:dimensionContext st:CAssetCuringStep;
+  mm:dimensionProperty st:curingStepTemperature. 
+
+st:Asset mm:observableContexts st:CAssetCuringStep.
+
+st:CAssetCuringStep 
+    mm:observableContextNavigationNavigationPath [  
+        mm:navigationPathFirst [    
+            mm:navigationPathElementDirect false;
+            mm:navigationPathElementProperty st:EventSubject
+        ];
+        mm:navigationPathRest rdf:nil
+    ].
+
+
+
+
    
