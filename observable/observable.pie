@@ -9,16 +9,43 @@ Prefices
 
 Axioms
 {
-	<mm:Observable> <rdf:type> <rdfs:Class>
 	<mm:Observable> <rdfs:subClassOf> <mm:ObservableContext>
 	<mm:Observable> <rdfs:subClassOf> <owl:Class>
 
-	<mm:ObservableContext> <rdf:type> <rdfs:Class>
 	<mm:ObservableContext> <rdfs:subClassOf> <owl:ObjectProperty>
 
 	<mm:observableContexts> <rdf:type> <rdf:Property>
 	<mm:observableContexts> <rdf:range> <mm:Observable>
 	<mm:observableContexts> <rdf:domain> <mm:ObservableContext>
+
+	<mm:ObservableContextNavigationPath> <rdfs:subClassOf> <mm:m:ObservableContext>
+	<mm:ObservableContextNavigationPath> <rdfs:subClassOf> <mm:rdf:List>
+	
+	<mm:ObservableContextNavigationPathElement> <rdf:type> <rdfs:Class>
+
+	<mm:mm:observableContextNavigationPathFirst> <rdfs:subPropertyOf> <rdf:first>
+	<mm:mm:observableContextNavigationPathFirst> <rdfs:domain> <mm:ObservableContextNavigationPath>
+	<mm:mm:observableContextNavigationPathFirst> <rdfs:range> <mm:ObservableContextNavigationPathElement>
+
+	<mm:mm:observableContextNavigationPathRest> <rdfs:subPropertyOf> <rdf:rest>
+	<mm:mm:observableContextNavigationPathRest> <rdfs:domain> <mm:ObservableContextNavigationPath>
+	<mm:mm:observableContextNavigationPathRest> <rdfs:range> <mm:ObservableContextNavigationPath>
+
+	<mm:ObservableContextNavigationPathElementProperty> <rdfs:subClassOf> <mm:ObservableContextNavigationPathElement>
+	
+	<mm:observableContextNavigationPathElementProperty> <rdf:type> <rdf:Property>
+	<mm:observableContextNavigationPathElementProperty> <rdfs:domain> <mm:ObservableContextNavigationPathElementProperty>
+	<mm:observableContextNavigationPathElementProperty> <rdfs:range> <owl:ObjectProperty>
+	
+	<mm:observableContextNavigationPathElementDirect> <rdf:type> <rdf:Property>
+	<mm:observableContextNavigationPathElementDirect> <rdfs:domain> <mm:ObservableContextNavigationPathElementProperty>
+	<mm:observableContextNavigationPathElementDirect> <rdfs:range> <xsd:boolean>
+
+	<mm:ObservableContextNavigationPathElementDowncast> <rdfs:subClassOf> <mm:ObservableContextNavigationPathElement>
+	
+	<mm:ObservableContextNavigationPathElementDowncast> <rdf:type> <rdf:Property>
+	<mm:ObservableContextNavigationPathElementDowncast> <rdfs:domain> <mm:ObservableContextNavigationPathElementDowncast>
+	<mm:ObservableContextNavigationPathElementDowncast> <rdfs:range> <owl:Class>
 }
 
 Rules
@@ -37,5 +64,50 @@ Id: self_context_semantics
   o1 <rdf:type> o
   -------------------------------
   o1 o o1
+
+Id: navigation_path_context_observable
+  o <mm:observableContexts> c
+  c <mm:observableContextNavigationNavigationPath> p
+  o1 <rdf:type> o
+  o1 p o2
+  -------------------------------
+  o1 c o2
+
+Id: navigation_path_context_not_nil
+  c <mm:observableContextNavigationPathFirst> f
+  c <mm:observableContextNavigationPathRest> r [Constraint t != <rdf:nil>]
+  o1 f o2
+  o2 r o3
+  -------------------------------
+  o1 c o3
+
+
+Id: navigation_path_context_nil
+  c <mm:observableContextNavigationPathFirst> f
+  c <mm:observableContextNavigationPathRest> <rdf:nil>
+  o1 f o2
+  -------------------------------
+  o1 c o2²
+
+Id: navigation_path_element_direct_prop
+  e <mm:observableContextNavigationPathElementProperty> p
+  e  <mm:observableContextNavigationPathElementDirect> true
+  o1 p o2
+  -------------------------------
+  o1 e o2
+
+Id: navigation_path_element_reverse_prop
+  e <mm:observableContextNavigationPathElementProperty> p
+  e <mm:observableContextNavigationPathElementDirect> false
+  o2 p o1
+  -------------------------------
+  o1 e o2
+
+Id: navigation_path_element_downcast
+  e <rdf:type> <mm:ObservableContextNavigationPathElementDowncast>
+  e <mm:observableContextNavigationPathElementDowncast> c
+  o1 <rdf:type> c
+  -------------------------------
+  o1 e o1
 
 }

@@ -46,81 +46,47 @@ mm:observableInfluences
 
 # an ObservableContext provides a context to be observed in a contextual class
 mm:ObservableContext 
-    rdf:type rdfs:Class ;
     rdfs:subClassOf owl:ObjectProperty . # its elements are properties, associating the contextual class with its observable contexts
 
 mm:ObservableContextNavigation
-    rdf:type rdfs:Class ;
     rdfs:subClassOf mm:ObservableContext .
-
-mm:ObservableContextNavigationPath 
-    rdf:type rdfs:Class ;
-    rdfs:subClassOf rdf:List .
-
-mm:ObservableContextNavigationPathElement 
-    rdf:type rdfs:Class .
-
-mm:observableContextNavigationPathFirst 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
-    rdfs:subPropertyOf 
-        rdf:first ,
-        owl:topObjectProperty ;
-    rdfs:domain 
-        mm:ObservableContextNavigationPath ;
-    rdfs:range 
-        mm:ObservableContextNavigationPathElement .
 
 mm:observableContextNavigationNavigationPath 
     rdf:type    owl:ObjectProperty ;
     rdfs:domain mm:ObservableContextNavigation ;
     rdfs:range  mm:ObservableContextNavigationPath .
 
-mm:observableContextNavigationPathRest 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
-    rdfs:subPropertyOf 
-        rdf:rest ,
-        owl:topObjectProperty ;
-    rdfs:domain 
-        mm:ObservableContextNavigationPath ;
-    rdfs:range 
-        mm:ObservableContextNavigationPath .
+mm:ObservableContextNavigationPath 
+    rdfs:subClassOf rdf:List .
+
+mm:ObservableContextNavigationPathElement 
+    rdf:type rdfs:Class .
+
+mm:observableContextNavigationPathFirst 
+    rdfs:subPropertyOf rdf:first;
+    rdfs:domain mm:ObservableContextNavigationPath ;
+    rdfs:range mm:ObservableContextNavigationPathElement .
 
 mm:ObservableContextNavigationPathElementProperty 
-    rdf:type  rdfs:Class ;
     rdfs:subClassOf mm:ObservableContextNavigationPathElement .
 
-###  http://www.flandersmake.be/ontology/mm#DimensionNavigationPathElementProperty
 mm:observableContextNavigationPathElementProperty 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
-    rdfs:domain 
-        mm:ObservableContextNavigationPathElementProperty ;
-    rdfs:range 
-        owl:ObjectProperty .
-
-###  http://www.flandersmake.be/ontology/mm#DimensionNavigationPathElementDirect
-mm:observableContextNavigationPathElementDirect 
-    rdf:type 
-        owl:DatatypeProperty ,
-        owl:FunctionalProperty ;
+    rdf:type    rdf:Property;
     rdfs:domain mm:ObservableContextNavigationPathElementProperty ;
-    rdfs:range xsd:boolean .
+    rdfs:range  owl:ObjectProperty .
+
+mm:observableContextNavigationPathElementDirect 
+    rdf:type    rdf:Property ;
+    rdfs:domain mm:ObservableContextNavigationPathElementProperty ;
+    rdfs:range  xsd:boolean .
 
 mm:ObservableContextNavigationPathElementDowncast
-    rdf:type rdfs:Class ;
     rdfs:subClassOf mm:ObservableContextNavigationPathElement .
 
 mm:observableContextNavigationPathElementDowncast
-    rdf:type 
-        owl:ObjectProperty ,    
-        owl:FunctionalProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:ObservableContextNavigationPathElementDowncast ;
-    rdfs:range owl:Class .
+    rdfs:range  owl:Class .
 
 #################################################################
 #    Dimension
