@@ -1,0 +1,124 @@
+@prefix : <http://www.flandersmake.be/ontology/StartEvent#> .
+@prefix mm: <http://www.flandersmake.be/ontology/mm#> .
+@prefix st: <http://www.flandersmake.be/ontology/StartEvent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.flandersmake.be/ontology/StartEvent> .
+
+<http://www.flandersmake.be/ontology/StartEvent> rdf:type owl:Ontology .
+
+#################################################################
+#    Model for the StartEvent ontolgy
+#################################################################
+
+#################################################################
+#    Classes
+#################################################################
+
+st:Phase rdf:type owl:Class .
+
+st:Asset 
+    rdf:type owl:Class ;
+    rdfs:label "Assets" .
+
+st:SampleA 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Asset ;
+    rdfs:comment "A subclass of Asset" .
+
+st:SampleB 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Asset ;
+    rdfs:comment "Another subclass of Asset" , "Maybe we should consider making a class Sample" .
+
+st:Event rdf:type owl:Class .
+
+st:Step 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Event .
+
+st:BadStep 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Step .
+
+st:PlasmaStep 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Step .
+
+st:CuringStep 
+    rdf:type owl:Class ;
+    rdfs:subClassOf st:Step .
+
+st:EventSubject 
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain st:Event ;
+    rdfs:range st:Asset .
+
+st:EventPhase 
+    rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:domain st:Event ;
+    rdfs:range st:Phase .
+
+
+#################################################################
+#    Properties
+#################################################################
+
+st:assetBreakstress 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain st:Asset ;
+    rdfs:range xsd:float .
+
+st:assetName 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain st:Asset ;
+    rdfs:range xsd:string .
+
+st:temperature 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:float .
+
+st:assetTemperature 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf st:temperature ;
+    rdfs:domain st:Asset .
+					
+st:curingStepTemperature
+	rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf st:temperature ;
+    rdfs:domain st:CuringStep .
+
+st:assetWeight 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain st:Asset ;
+    rdfs:range xsd:float .
+
+st:start 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range xsd:dateTime .
+
+st:eventStart 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf st:start ;
+    rdfs:domain st:Event .
+
+st:stepStart 
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf st:eventStart ;
+    rdfs:domain st:Step .
+
+
+#################################################################
+#    Observable
+#################################################################
+
+st:Asset rdfs:subClassOf mm:Observable.
+   

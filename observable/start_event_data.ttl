@@ -1,0 +1,72 @@
+@prefix : <http://www.flandersmake.be/ontology/StartEvent#> .
+@prefix mm: <http://www.flandersmake.be/ontology/mm#> .
+@prefix st: <http://www.flandersmake.be/ontology/StartEvent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.flandersmake.be/ontology/StartEvent> .
+
+<http://www.flandersmake.be/ontology/StartEvent> rdf:type owl:Ontology .
+
+#################################################################
+#    Data for the StartEvent ontology
+#################################################################
+
+st:Phase1 
+    rdf:type owl:NamedIndividual , st:Phase.
+
+st:Phase2
+    rdf:type owl:NamedIndividual , st:Phase.
+
+st:A1 
+    rdf:type owl:NamedIndividual , st:SampleA ;
+    st:assetName "SampleA1"^^xsd:string ;
+    st:assetBreakstress "0.12"^^xsd:float; 
+    st:assetWeight "12.0"^^xsd:float .
+
+st:B2 
+    rdf:type owl:NamedIndividual , st:SampleB ;
+    st:assetName "SampleB2"^^xsd:string ;
+    st:assetBreakstress "0.25"^^xsd:float; 
+    st:assetWeight "12.0"^^xsd:float .
+
+st:B3
+    rdf:type owl:NamedIndividual , st:SampleB ;
+    st:assetName "SampleB3"^^xsd:string ;
+    st:assetBreakstress "0.35"^^xsd:float; 
+    st:assetWeight "24.0"^^xsd:float .
+
+st:CuringB1 
+    rdf:type owl:NamedIndividual , st:BadStep , st:CuringStep ;
+    st:eventSubject st:A1 ;
+    st:eventPhase st:Phase1;
+    st:stepStart "2002-05-30T09:00:00"^^xsd:dateTime ;
+    st:curingStepTemperature "12.36"^^xsd:float .
+
+st:CuringB2 
+    rdf:type owl:NamedIndividual , st:CuringStep ;
+    st:eventSubject st:B2 ;
+    st:eventPhase st:Phase2;
+    st:stepStart "2002-05-30T09:00:00"^^xsd:dateTime;
+    st:curingStepTemperature "23.36"^^xsd:float.
+
+st:CuringB3 
+    rdf:type owl:NamedIndividual , st:CuringStep ;
+    st:eventSubject st:B3 ;
+    st:eventPhase st:Phase2;
+    st:stepStart "2002-05-30T09:00:00"^^xsd:dateTime;
+    st:curingStepTemperature "15.36"^^xsd:float.
+
+st:PlasmaA1 
+    rdf:type owl:NamedIndividual , st:PlasmaStep ;
+    st:eventSubject st:A1 ;
+    st:eventPhase st:Phase2;
+    st:stepStart "2002-05-30T10:00:00"^^xsd:dateTime.
+
+st:PlasmaB2 
+    rdf:type owl:NamedIndividual , st:PlasmaStep ;
+    st:eventSubject st:B2 ;
+    st:eventPhase st:Phase1;
+    st:stepStart "2002-05-30T16:00:00"^^xsd:dateTime .
