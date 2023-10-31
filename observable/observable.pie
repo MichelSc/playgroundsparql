@@ -1,0 +1,41 @@
+Prefices
+{
+	rdf :  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+	rdfs : http://www.w3.org/2000/01/rdf-schema#
+	owl :  http://www.w3.org/2002/07/owl#
+	xsd :  http://www.w3.org/2001/XMLSchema#
+    mm :   http://www.flandersmake.be/ontology/mm#
+}
+
+Axioms
+{
+	<mm:Observable> <rdf:type> <rdfs:Class>
+	<mm:Observable> <rdfs:subClassOf> <mm:ObservableContext>
+	<mm:Observable> <rdfs:subClassOf> <owl:Class>
+
+	<mm:ObservableContext> <rdf:type> <rdfs:Class>
+	<mm:ObservableContext> <rdfs:subClassOf> <owl:ObjectProperty>
+
+	<mm:observableContexts> <rdf:type> <rdf:Property>
+	<mm:observableContexts> <rdf:range> <mm:Observable>
+	<mm:observableContexts> <rdf:domain> <mm:ObservableContext>
+}
+
+Rules
+{
+// ========================================================================
+// The Semantics of Axioms about ObservableContext 
+// ========================================================================
+
+Id: self_context
+  o <rdf:type> <mm:Observable>
+  -------------------------------
+  o <mm:observableContexts> o
+
+Id: self_context_semantics
+  o <rdf:type> <mm:Observable>
+  o1 <rdf:type> o
+  -------------------------------
+  o1 o o1
+
+}

@@ -4,6 +4,11 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Move ruleset file",
+            "type": "shell",
+            "command": ". .env; echo $ROOT_PWD | sudo -S cp ${relativeFile} home/rules",
+        },
+        {
             "label": "Start graphdb",
             "type": "shell",
             "command": "scripts/startgraphdb.sh"
