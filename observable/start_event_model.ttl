@@ -120,5 +120,5 @@ st:stepStart
 #    Observable
 #################################################################
 
-st:Asset rdfs:subClassOf mm:Observable.
+st:Asset rdf:type mm:Observable.
    
