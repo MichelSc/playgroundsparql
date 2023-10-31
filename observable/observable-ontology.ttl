@@ -52,7 +52,7 @@ mm:ObservableContextNavigation
     rdfs:subClassOf mm:ObservableContext .
 
 mm:observableContextNavigationNavigationPath 
-    rdf:type    owl:ObjectProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:ObservableContextNavigation ;
     rdfs:range  mm:NavigationPath .
 
