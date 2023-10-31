@@ -15,33 +15,30 @@
 #################################################################
 
 mm:Observable 
+    rdf:type rdfs:Class ;
     rdfs:subClassOf owl:Class ;
-    rdfs:subClassOf mm:ObservableContext ;
-    rdf:type rdfs:Class .
+    rdfs:subClassOf mm:ObservableContext .
     
 mm:observableObservations 
-    rdf:type owl:ObjectProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:Observable ;
-    rdfs:range mm:Observation .
+    rdfs:range  mm:Observation .
 
 ###  http://www.flandersmake.be/ontology/mm#ObservableDimensions
 mm:observableContexts 
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:Observable ;
     rdfs:range  mm:ObservableContext .
 
 mm:observableProperties 
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdf:type     rdf:Property ;
     rdfs:domain  mm:Observable ;
     rdfs:range   mm:Property .
 
 mm:observableInfluences
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:Observable ;
-    rdfs:range mm:Influence .
+    rdfs:range  mm:Influence .
 
 #################################################################
 #    ObservableContext
