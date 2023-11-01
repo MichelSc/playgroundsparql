@@ -105,26 +105,26 @@ mm:dimensionContext
     rdfs:domain mm:Dimension ;
     rdfs:range mm:ObservableContext .
 
-mm:DimensionProperty  rdfs:subClassOf mm:Dimension .
+mm:DimensionProperty rdfs:subClassOf mm:Dimension .
 
 mm:dimensionProperty 
-    rdf:type rdf:Property ;
-    rdfs:domain  mm:DimensionProperty ;
-    rdfs:range owl:DatatypeProperty .
+    rdf:type    rdf:Property ;
+    rdfs:domain mm:DimensionProperty ;
+    rdfs:range  owl:DatatypeProperty .
 
 mm:DimensionDimension rdfs:subClassOf mm:Dimension .
 
 mm:dimensionDimension 
-    rdf:type rdf:Property  ;
+    rdf:type    rdf:Property  ;
     rdfs:domain mm:DimensionDimension ;
-    rdfs:range mm:Dimension .
+    rdfs:range  mm:Dimension .
 
 #################################################################
 #    Observation
 #################################################################
 
-###  http://www.flandersmake.be/ontology/mm#Observation
-mm:Observation rdf:type rdfs:Class .
+mm:Observation 
+    rdf:type rdfs:Class .
 
 mm:UnaryObservation 
     rdfs:subClassOf mm:Observation .
@@ -133,46 +133,32 @@ mm:BinaryObservation
     rdfs:subClassOf  mm:Observation .
 
 mm:observationArity 
-    rdf:type 
-        owl:DatatypeProperty ,
-        owl:FunctionalProperty ;
+    rdf:type rdf:Property ;
     rdfs:domain mm:Observation ;
     rdfs:range xsd:integer .
 
-###  http://www.flandersmake.be/ontology/mm#UnaryObservationDimension
 mm:unaryObservationDimension 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:UnaryObservation ;
-    rdfs:range mm:Dimension .
+    rdfs:range  mm:Dimension .
 
-###  http://www.flandersmake.be/ontology/mm#BinaryObservationDimension1
 mm:binaryObservationDimension1 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:BinaryObservation ;
-    rdfs:range mm:Dimension .
+    rdfs:range  mm:Dimension .
 
-
-###  http://www.flandersmake.be/ontology/mm#BinaryObservationDimension2
 mm:binaryObservationDimension2 
-    rdf:type 
-        owl:ObjectProperty ,
-        owl:FunctionalProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:BinaryObservation ;
-    rdfs:range mm:Dimension .
+    rdfs:range  mm:Dimension .
 
-###  http://www.flandersmake.be/ontology/mm#ObservationGroupingDimensions
 mm:observationGroupingDimensions 
-    rdf:type 
-        owl:ObjectProperty ;
+    rdf:type    rdf:Property ;
     rdfs:domain mm:Observation ;
-    rdfs:range mm:Dimension .
+    rdfs:range  mm:Dimension .
 
 #################################################################
-#    Property/Influence
+#    Property/Influence TODO
 #################################################################
 
 mm:Property 

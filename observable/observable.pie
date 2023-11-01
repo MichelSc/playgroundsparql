@@ -4,7 +4,7 @@ Prefices
 	rdfs : http://www.w3.org/2000/01/rdf-schema#
 	owl :  http://www.w3.org/2002/07/owl#
 	xsd :  http://www.w3.org/2001/XMLSchema#
-    mm :   http://www.flandersmake.be/ontology/mm#
+  mm :   http://www.flandersmake.be/ontology/mm#
 }
 
 Axioms
@@ -96,14 +96,14 @@ Id: navigation_path_context_nil
 
 Id: navigation_path_element_direct_prop
   e <mm:navigationPathElementProperty> p
-  e <mm:navigationPathElementDirect> true
+  e <mm:navigationPathElementDirect> "true"^^xsd:boolean
   o1 p o2
   -------------------------------
   o1 e o2
 
 Id: navigation_path_element_reverse_prop
   e <mm:navigationPathElementProperty> p
-  e <mm:navigationPathElementDirect> false
+  e <mm:navigationPathElementDirect> "false"^^xsd:boolean
   o2 p o1
   -------------------------------
   o1 e o2
