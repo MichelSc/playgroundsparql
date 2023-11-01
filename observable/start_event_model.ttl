@@ -130,15 +130,24 @@ st:DAssetCuringTemperature
   mm:dimensionContext st:CAssetCuringStep;
   mm:dimensionProperty st:curingStepTemperature. 
 
+# st:CAssetCuringStep 
+#     mm:observableContextObservable st:Asset;
+#     mm:observableContextNavigationNavigationPath st:PAssetCuringStep .
+
+# st:PAssetCuringStep 
+#     mm:navigationPathFirst st:EAssetCuringStep;
+#     mm:navigationPathRest rdf:nil.
+
+# st:EAssetCuringStep 
+#     mm:navigationPathElementDirect false;
+#     mm:navigationPathElementProperty st:eventSubject.
+        
 st:CAssetCuringStep 
     mm:observableContextObservable st:Asset;
-    mm:observableContextNavigationNavigationPath st:PAssetCuringStep .
-
-st:PAssetCuringStep 
-    mm:navigationPathFirst st:EAssetCuringStep;
-    mm:navigationPathRest rdf:nil.
-
-st:EAssetCuringStep 
-    mm:navigationPathElementDirect false;
-    mm:navigationPathElementProperty st:eventSubject.
-            
+    mm:observableContextNavigationNavigationPath [  
+        mm:navigationPathFirst [    
+            mm:navigationPathElementDirect false;
+            mm:navigationPathElementProperty st:eventSubject
+        ];
+        mm:navigationPathRest rdf:nil
+    ].
