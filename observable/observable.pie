@@ -9,6 +9,7 @@ Prefices
 
 Axioms
 {
+  // Observable axioms
 	<mm:Observable> <rdfs:subClassOf> <mm:ObservableContext>
 	<mm:Observable> <rdfs:subClassOf> <owl:Class>
 
@@ -24,6 +25,7 @@ Axioms
 	<mm:observableContextNavigationNavigationPath> <rdfs:domain> <mm:ObservableContextNavigation>
 	<mm:observableContextNavigationNavigationPath> <rdfs:range> <mm:NavigationPath>
 
+	// Navigation path axioms
 	<mm:NavigationPath> <rdfs:subClassOf> <owl:ObjectProperty>
 	<mm:NavigationPath> <rdfs:subClassOf> <mm:rdf:List>
 	
@@ -52,12 +54,31 @@ Axioms
 	<mm:navigationPathElementDowncast> <rdf:type> <rdf:Property>
 	<mm:navigationPathElementDowncast> <rdfs:domain> <mm:NavigationPathElementDowncast>
 	<mm:navigationPathElementDowncast> <rdfs:range> <owl:Class>
+  
+  // Dimension axioms
+	<mm:Dimension> <rdfs:subClassOf> <owl:DatatypeProperty>
+
+  <mm:dimensionContext> <rdf:type>   <rdf:Property>
+  <mm:dimensionContext> <rdf:domain> <mm:Dimension>
+  <mm:dimensionContext> <rdf:range>  <mm:ObservableContext>
+
+  <mm:DimensionProperty> <rdfs:subClassOf> <mm:Dimension>
+  
+  <mm:dimensionProperty> <rdf:type>   <rdf:Property>
+  <mm:dimensionProperty> <rdf:domain> <mm:DimensionProperty>
+  <mm:dimensionProperty> <rdf:range>  <owl:DatatypeProperty>
+
+  <mm:DimensionDimension> <rdfs:subClassOf> <mm:Dimension>
+
+  <mm:dimensionDimension> <rdf:type> <rdf:Property>
+  <mm:dimensionDimension> <rdf:domain> <mm:DimensionDimension>
+  <mm:dimensionDimension> <rdf:range> <mm:Dimension>
 }
 
 Rules
 {
 // ========================================================================
-// The Semantics of Axioms about ObservableContext 
+// The Semantics of ObservableContext 
 // ========================================================================
 
 Id: self_context
@@ -114,4 +135,26 @@ Id: navigation_path_element_downcast
   -------------------------------
   o1 e o1
 
+// ========================================================================
+// The Semantics of Dimension 
+// ========================================================================
+
+Id: dimension_property
+  d <rdf:type> <mm:DimensionProperty>
+  d <mm:dimensionContext> c
+  d <mm:dimensionProperty> p
+  o1 c c1
+  c1 p v1
+  -------------------------------
+  o1 d v1
+
+
+Id: dimension_dimension
+  d <rdf:type> <mm:DimensionDimension>
+  d <mm:dimensionContext> c
+  d <mm:dimensionDimension> p
+  o1 c c1
+  c1 p v1
+  -------------------------------
+  o1 d v1
 }
