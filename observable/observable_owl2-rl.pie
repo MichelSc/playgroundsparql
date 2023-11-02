@@ -1452,12 +1452,12 @@ Id: scm_uni_2
 // The Semantics of ObservableContext 
 // ========================================================================
 
-Id: self_context_ok
+Id: self_context
   o <rdf:type> <mm:Observable>
   -------------------------------
   o <mm:observableContextObservable> o
 
-Id: self_context_semantics_ok
+Id: self_context_semantics
   o <rdf:type> <mm:Observable>
   o1 <rdf:type> o
   -------------------------------
@@ -1467,44 +1467,44 @@ Id: context_observable_navigation_path
   c <mm:observableContextObservable> o
   c <mm:observableContextNavigationNavigationPath> p
   o1 <rdf:type> o
-  o1 p o2
+  o1 p o2           [Context <mm:_checkPath>]
   -------------------------------
   o1 c o2
 
 Id: navigation_path_context_not_nil
   p <mm:navigationPathFirst> f
   p <mm:navigationPathRest> r [Constraint r != <rdf:nil>]
-  o1 f o2
-  o2 r o3
+  o1 f o2           [Context <mm:_checkPathElem>]
+  o2 r o3           [Context <mm:_checkPath>]
   -------------------------------
-  o1 p o3
+  o1 p o3           [Context <mm:_checkPath>]
 
 Id: navigation_path_context_nil
   p <mm:navigationPathFirst> f
   p <mm:navigationPathRest> <rdf:nil>
-  o1 f o2
+  o1 f o2           [Context <mm:_checkElem>]
   -------------------------------
-  o1 p o2
+  o1 p o2           [Context <mm:_checkPath>]
 
 Id: navigation_path_element_direct_prop
   e <mm:navigationPathElementProperty> p
   e <mm:navigationPathElementDirect> "true"^^xsd:boolean
-  o1 p o2
+  o1 p o2   
   -------------------------------
-  o1 e o2
+  o1 e o2           [Context <mm:_checkElem>]
 
 Id: navigation_path_element_reverse_prop
   e <mm:navigationPathElementProperty> p
   e <mm:navigationPathElementDirect> "false"^^xsd:boolean
-  o2 p o1
+  o2 p o1  
   -------------------------------
-  o1 e o2
+  o1 e o2           [Context <mm:_checkElem>]
 
 Id: navigation_path_element_downcast
   e <mm:navigationPathElementDowncast> c
   o1 <rdf:type> c
   -------------------------------
-  o1 e o1
+  o1 e o1           [Context <mm:_checkElem>]
 
 // ========================================================================
 // The Semantics of Dimension 
