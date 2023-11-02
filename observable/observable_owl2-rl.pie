@@ -574,7 +574,8 @@ Axioms
   <xsd:anyURI>               <rdf:type> <rdfs:Datatype>
   <xsd:dateTime>             <rdf:type> <rdfs:Datatype>
   <xsd:dateTimeStamp>        <rdf:type> <rdfs:Datatype>
-  // Observable axioms
+
+    // Observable axioms
 	<mm:Observable> <rdfs:subClassOf> <mm:ObservableContext>
 	<mm:Observable> <rdfs:subClassOf> <owl:Class>
 
@@ -586,15 +587,13 @@ Axioms
 
 	<mm:ObservableContextNavigation> <rdfs:subClassOf> <mm:ObservableContext>
 		
-  <mm:observableContextNavigationNavigationPath> <rdf:type> <rdf:Property>
+    <mm:observableContextNavigationNavigationPath> <rdf:type> <rdf:Property>
 	<mm:observableContextNavigationNavigationPath> <rdfs:domain> <mm:ObservableContextNavigation>
 	<mm:observableContextNavigationNavigationPath> <rdfs:range> <mm:NavigationPath>
 
 	// Navigation path axioms
-	<mm:NavigationPath> <rdfs:subClassOf> <owl:ObjectProperty>
 	<mm:NavigationPath> <rdfs:subClassOf> <mm:rdf:List>
-	
-	<mm:NavigationPathElement> <rdfs:subClassOf> <owl:ObjectProperty>
+	<mm:NavigationPathElement> <rdf:type> <rdf:Class>
 
 	<mm:navigationPathFirst> <rdfs:subPropertyOf> <rdf:first>
 	<mm:navigationPathFirst> <rdfs:domain> <mm:NavigationPath>
@@ -620,24 +619,24 @@ Axioms
 	<mm:navigationPathElementDowncast> <rdfs:domain> <mm:NavigationPathElementDowncast>
 	<mm:navigationPathElementDowncast> <rdfs:range> <owl:Class>
   
-  // Dimension axioms
+    // Dimension axioms
 	<mm:Dimension> <rdfs:subClassOf> <owl:DatatypeProperty>
 
-  <mm:dimensionContext> <rdf:type>   <rdf:Property>
-  <mm:dimensionContext> <rdf:domain> <mm:Dimension>
-  <mm:dimensionContext> <rdf:range>  <mm:ObservableContext>
+    <mm:dimensionContext> <rdf:type>   <rdf:Property>
+    <mm:dimensionContext> <rdf:domain> <mm:Dimension>
+    <mm:dimensionContext> <rdf:range>  <mm:ObservableContext>
 
-  <mm:DimensionProperty> <rdfs:subClassOf> <mm:Dimension>
-  
-  <mm:dimensionProperty> <rdf:type>   <rdf:Property>
-  <mm:dimensionProperty> <rdf:domain> <mm:DimensionProperty>
-  <mm:dimensionProperty> <rdf:range>  <owl:DatatypeProperty>
+    <mm:DimensionProperty> <rdfs:subClassOf> <mm:Dimension>
+    
+    <mm:dimensionProperty> <rdf:type>   <rdf:Property>
+    <mm:dimensionProperty> <rdf:domain> <mm:DimensionProperty>
+    <mm:dimensionProperty> <rdf:range>  <owl:DatatypeProperty>
 
-  <mm:DimensionDimension> <rdfs:subClassOf> <mm:Dimension>
+    <mm:DimensionDimension> <rdfs:subClassOf> <mm:Dimension>
 
-  <mm:dimensionDimension> <rdf:type> <rdf:Property>
-  <mm:dimensionDimension> <rdf:domain> <mm:DimensionDimension>
-  <mm:dimensionDimension> <rdf:range> <mm:Dimension>
+    <mm:dimensionDimension> <rdf:type> <rdf:Property>
+    <mm:dimensionDimension> <rdf:domain> <mm:DimensionDimension>
+    <mm:dimensionDimension> <rdf:range> <mm:Dimension>
 }
 
 Rules
@@ -1467,44 +1466,44 @@ Id: context_observable_navigation_path
   c <mm:observableContextObservable> o
   c <mm:observableContextNavigationNavigationPath> p
   o1 <rdf:type> o
-  o1 p o2           [Context <mm:_checkPath>]
+  o1 p o2                       [Context <mm:_checkPath>]
   -------------------------------
   o1 c o2
 
 Id: navigation_path_context_not_nil
   p <mm:navigationPathFirst> f
-  p <mm:navigationPathRest> r [Constraint r != <rdf:nil>]
-  o1 f o2           [Context <mm:_checkPathElem>]
-  o2 r o3           [Context <mm:_checkPath>]
+  p <mm:navigationPathRest> r   [Constraint r != <rdf:nil>]
+  o1 f o2                       [Context <mm:_checkPathElem>]
+  o2 r o3                       [Context <mm:_checkPath>]
   -------------------------------
-  o1 p o3           [Context <mm:_checkPath>]
+  o1 p o3                       [Context <mm:_checkPath>]
 
 Id: navigation_path_context_nil
   p <mm:navigationPathFirst> f
   p <mm:navigationPathRest> <rdf:nil>
-  o1 f o2           [Context <mm:_checkElem>]
+  o1 f o2                       [Context <mm:_checkElem>]
   -------------------------------
-  o1 p o2           [Context <mm:_checkPath>]
+  o1 p o2                       [Context <mm:_checkPath>]
 
 Id: navigation_path_element_direct_prop
   e <mm:navigationPathElementProperty> p
   e <mm:navigationPathElementDirect> "true"^^xsd:boolean
   o1 p o2   
   -------------------------------
-  o1 e o2           [Context <mm:_checkElem>]
+  o1 e o2                       [Context <mm:_checkElem>]
 
 Id: navigation_path_element_reverse_prop
   e <mm:navigationPathElementProperty> p
   e <mm:navigationPathElementDirect> "false"^^xsd:boolean
   o2 p o1  
   -------------------------------
-  o1 e o2           [Context <mm:_checkElem>]
+  o1 e o2                       [Context <mm:_checkElem>]
 
 Id: navigation_path_element_downcast
   e <mm:navigationPathElementDowncast> c
   o1 <rdf:type> c
   -------------------------------
-  o1 e o1           [Context <mm:_checkElem>]
+  o1 e o1                       [Context <mm:_checkElem>]
 
 // ========================================================================
 // The Semantics of Dimension 

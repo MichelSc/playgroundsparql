@@ -61,11 +61,10 @@ mm:observableContextNavigationNavigationPath
     rdfs:range  mm:NavigationPath .
 
 mm:NavigationPath 
-    rdfs:subClassOf owl:ObjectProperty ;
     rdfs:subClassOf rdf:List .
 
 mm:NavigationPathElement 
-    rdfs:subClassOf owl:ObjectProperty .
+    rdf:type rdf:Class .
 
 mm:navigationPathFirst 
     rdfs:subPropertyOf rdf:first;

@@ -129,19 +129,7 @@ st:DAssetBreakStress
 st:DAssetCuringTemperature
   mm:dimensionContext st:CAssetCuringStep;
   mm:dimensionProperty st:curingStepTemperature. 
-
-# st:CAssetCuringStep 
-#     mm:observableContextObservable st:Asset;
-#     mm:observableContextNavigationNavigationPath st:PAssetCuringStep .
-
-# st:PAssetCuringStep 
-#     mm:navigationPathFirst st:EAssetCuringStep;
-#     mm:navigationPathRest rdf:nil.
-
-# st:EAssetCuringStep 
-#     mm:navigationPathElementDirect false;
-#     mm:navigationPathElementProperty st:eventSubject.
-        
+       
 st:CAssetCuringStep 
     mm:observableContextObservable st:Asset;
     mm:observableContextNavigationNavigationPath [  
@@ -150,4 +138,44 @@ st:CAssetCuringStep
             mm:navigationPathElementProperty st:eventSubject
         ];
         mm:navigationPathRest rdf:nil
+    ].
+
+st:CBadStep 
+    mm:observableContextObservable st:Event;
+    mm:observableContextNavigationNavigationPath [  
+        mm:navigationPathFirst [    
+            mm:navigationPathElementDowncast st:BadStep
+        ];
+        mm:navigationPathRest rdf:nil
+    ].
+
+st:CAssetBadCuringStep 
+    mm:observableContextObservable st:Asset;
+    mm:observableContextNavigationNavigationPath [  
+        mm:navigationPathFirst [    
+            mm:navigationPathElementDirect false;
+            mm:navigationPathElementProperty st:eventSubject
+        ];
+        mm:navigationPathRest [
+            mm:navigationPathFirst [    
+                mm:navigationPathElementDowncast st:BadStep
+            ];
+            mm:navigationPathRest rdf:nil
+        ]
+    ].
+
+st:CAssetCuringStepPhase
+    mm:observableContextObservable st:Asset;
+    mm:observableContextNavigationNavigationPath [  
+        mm:navigationPathFirst [    
+            mm:navigationPathElementDirect false;
+            mm:navigationPathElementProperty st:eventSubject
+        ];
+        mm:navigationPathRest [
+            mm:navigationPathFirst [    
+                mm:navigationPathElementDirect true;
+                mm:navigationPathElementProperty st:eventPhase
+            ];
+            mm:navigationPathRest rdf:nil
+        ]
     ].
