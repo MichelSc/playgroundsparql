@@ -3,6 +3,7 @@
 ## issues or questions
 
 - question: are pie axioms necessary? What do they do?
+- good idea to make Observable also ObservableContext?
 - todo: rules for DimensionDimension concept
 - KGExplore
   - support for rdfs:Class
