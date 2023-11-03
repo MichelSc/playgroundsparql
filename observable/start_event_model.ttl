@@ -137,7 +137,12 @@ st:CAssetCuringStep
             mm:navigationPathElementDirect false;
             mm:navigationPathElementProperty st:eventSubject
         ];
-        mm:navigationPathRest rdf:nil
+        mm:navigationPathRest [
+            mm:navigationPathFirst [    
+                mm:navigationPathElementDowncast st:CuringStep
+            ];
+            mm:navigationPathRest rdf:nil
+        ]
     ].
 
 st:CBadStep 

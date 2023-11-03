@@ -9,6 +9,16 @@
             "command": ". .env; echo $ROOT_PWD | sudo -S cp ${relativeFile} home/rules",
         },
         {
+            "label": "Start docker",
+            "type": "shell",
+            "command": ". .env; echo $ROOT_PWD | sudo -S service docker start",
+        },
+        {
+            "label": "Fix network",
+            "type": "shell",
+            "command": ". .env; echo $ROOT_PWD | sudo -S ~/scripts/fixwsl.sh",
+        },
+        {
             "label": "Start graphdb",
             "type": "shell",
             "command": "scripts/startgraphdb.sh"
