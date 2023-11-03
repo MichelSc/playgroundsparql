@@ -1,5 +1,9 @@
 # playgroundsparql
 
+## issues or questions
+
+- question: are pie axioms necessary? What do they do?
+
 ## TODO's
 
 - KGExplore
@@ -8,7 +12,7 @@
     - in predicate diagram language
   - sparql executor column widths
 - observable ontology
-  - rdfs:Class or owl:Class
+  - rdfs:Class or owl:Class: chosen rdfs:Class
   - application class versus meta class: rdf:type?
     - no inheritance ...
   - are metaconcepts rdf:Property's  
