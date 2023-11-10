@@ -30,6 +30,13 @@
             "problemMatcher": []
         },
         {
+            "label": "Start KGExplore",
+            "type": "shell",
+            "options": {"cwd": "${workspaceFolder}/../assistant/Ontology-based-KG-Viz/glsp-client"},
+            "command": "yarn start",
+            "problemMatcher": []
+        },
+        {
             "label": "Restart graphdb",
             "type": "shell",
             "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
