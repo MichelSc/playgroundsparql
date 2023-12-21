@@ -4,45 +4,40 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Move ruleset file",
-            "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S cp ${relativeFile} home/rules",
-        },
-        {
-            "label": "Start docker",
-            "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S service docker start",
-        },
-        {
-            "label": "Fix network",
+            "label": "W0: Fix network",
             "type": "shell",
             "command": ". .env; echo $ROOT_PWD | sudo -S ~/scripts/fixwsl.sh",
         },
         {
-            "label": "Start graphdb",
+            "label": "W1: Start docker",
+            "type": "shell",
+            "command": ". .env; echo $ROOT_PWD | sudo -S service docker start",
+        },
+        {
+            "label": "W2a: Start graphdb",
             "type": "shell",
             "command": "scripts/startgraphdb.sh"
         },
         {
-            "label": "Stop graphdb",
+            "label": "W2b: Restart graphdb",
+            "type": "shell",
+            "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
+        },
+        {
+            "label": "W3: Stop graphdb",
             "type": "shell",
             "command": ". .env; echo $ROOT_PWD | sudo -S docker stop $GRAPHDB_CONTAINER",
             "problemMatcher": []
         },
         {
-            "label": "Start KGExplore",
+            "label": "V1: Start KGExplore",
             "type": "shell",
             "options": {"cwd": "${workspaceFolder}/../assistant/Ontology-based-KG-Viz/glsp-client"},
             "command": "yarn start",
             "problemMatcher": []
         },
         {
-            "label": "Restart graphdb",
-            "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
-        },
-        {
-            "label": "Import rdf",
+            "label": "V2: Import rdf",
             "type": "shell",
             "command": "scripts/importrdf.sh ${relativeFile}",
             "presentation": {
@@ -53,11 +48,6 @@
                 "showReuseMessage": true,
                 "clear": true
             }
-        },
-        {
-            "label": "Test",
-            "type": "shell",
-            "command": "echo file: ${relativeFile}"
         }
     ]
 }
