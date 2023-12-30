@@ -64,8 +64,8 @@ proc:subStepExecs rdf:type rdf:Property;
 #################################################################
 
 proc:ProcessReplicator rdf:type mm:Replicator;
-    mm:examplarType proc:ProcessDef;
-    mm:replicatType proc:ProcessExec.
+    mm:replicatorExemplarType proc:ProcessDef;
+    mm:replicatorReplicaType proc:ProcessExec.
 
 proc:ProcessReplicatorElement rdf:type mm:ReplicatorElement;
     mm:replicatorElementReplicator proc:ProcessReplicator;

@@ -14,11 +14,11 @@
 
 mm:Replicator rdf:type rdfs:Class.
 
-mm:exemplarType rdf:type rdf:Property;
+mm:replicatorExemplarType rdf:type rdf:Property;
     rdfs:domain mm:Replicator;
     rdfs:range owl:Class.
 
-mm:replicaType rdf:type rdf:Property;
+mm:replicatorReplicaType rdf:type rdf:Property;
     rdfs:domain mm:Replicator;
     rdfs:range owl:Class.
 
