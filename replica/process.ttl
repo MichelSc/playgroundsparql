@@ -1,0 +1,73 @@
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mm: <http://www.flandersmake.be/ontology/mm#> .
+@prefix proc: <http://www.flandersmake.be/ontology/proc#> .
+@prefix : <http://www.flandersmake.be/ontology/mich#> .
+
+<http://www.flandersmake.be/ontology/process/spec> rdf:type owl:Ontology .
+
+#################################################################
+#    Process  ontology
+#################################################################
+
+proc:ProcessElement rdf:type owl:Class.
+
+proc:processName rdf:type owl:DatatypeProperty;
+    rdfs:domain proc:ProcessElement;
+    rdfs:range xsd:string.
+
+#################################################################
+#    Process Definition ontology
+#################################################################
+
+proc:ProcessDef rdf:type owl:Class;
+    rdfs:subClassOf proc:ProcessElement.
+
+proc:processDefSteps rdf:type rdf:Property;
+    rdfs:subPropertyOf mm:Elements;
+    rdfs:domain proc:ProcessDef;
+    rdfs:range owl:StepDef.
+
+proc:StepDef rdf:type owl:Class;
+    rdfs:subClassOf proc:ProcessElement.
+
+proc:subStepDefs rdf:type rdf:Property;
+    rdfs:subPropertyOf mm:Elements;
+    rdfs:domain proc:StepDef;
+    rdfs:range owl:StepDef.
+
+#################################################################
+#    Process Execution ontology
+#################################################################
+
+proc:ProcessExec rdf:type owl:Class;
+    rdfs:subClassOf proc:ProcessElement.
+
+proc:processExecSteps rdf:type rdf:Property;
+    rdfs:subPropertyOf mm:Elements;
+    rdfs:domain proc:ProcessExec;
+    rdfs:range owl:StepExec.
+
+proc:StepExec rdf:type owl:Class;
+    rdfs:subClassOf proc:ProcessElement.
+
+proc:subStepExecs rdf:type rdf:Property;
+    rdfs:subPropertyOf mm:Elements;
+    rdfs:domain proc:StepExec;
+    rdfs:range owl:StepExec.
+
+#################################################################
+#    Process Replication Execution from Definition
+#################################################################
+
+proc:ProcessReplicator rdf:type mm:Replicator;
+    mm:examplarType proc:ProcessDef;
+    mm:replicatType proc:ProcessExec.
+
+proc:ProcessReplicatorElement rdf:type mm:ReplicatorElement;
+    mm:replicatorElementReplicator proc:ProcessReplicator;
+    mm:replicatorElementExemplarType proc:StepDef;
+    mm:replicatorElementReplicaType proc:StepExec.

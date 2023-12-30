@@ -1,5 +1,14 @@
 # playgroundsparql
 
+## install docker
+
+See [Docker installation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+Add user to group docker
+
+``` bash
+sudo usermod -aG docker $USER
+```
 ## issues or questions
 
 - question: are pie axioms necessary? What do they do?
