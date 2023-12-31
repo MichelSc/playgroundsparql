@@ -7,5 +7,5 @@ PREFIX proc: <http://www.flandersmake.be/ontology/proc#>
 
 SELECT * 
 WHERE {
-    ?p proc:processDefSteps ?s.
+    proc:EP11 mm:elements ?e.
 }
