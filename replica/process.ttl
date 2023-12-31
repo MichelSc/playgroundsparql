@@ -27,7 +27,6 @@ proc:ProcessDef rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:processDefSteps rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:ProcessDef;
     rdfs:range proc:StepDef.
 
@@ -35,7 +34,10 @@ proc:StepDef rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:subStepDefs rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:elements;
+    rdfs:domain proc:StepDef;
+    rdfs:range proc:StepDef.
+
+proc:nextStepDef rdf:type rdf:Property;
     rdfs:domain proc:StepDef;
     rdfs:range proc:StepDef.
 
@@ -47,7 +49,6 @@ proc:ProcessExec rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:processExecSteps rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:ProcessExec;
     rdfs:range proc:StepExec.
 
@@ -55,7 +56,10 @@ proc:StepExec rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:subStepExecs rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:elements;
+    rdfs:domain proc:StepExec;
+    rdfs:range proc:StepExec.
+
+proc:nextStepExec rdf:type rdf:Property;
     rdfs:domain proc:StepExec;
     rdfs:range proc:StepExec.
 
@@ -72,6 +76,11 @@ proc:ProcessReplicatorElement rdf:type mm:ReplicatorElement;
     mm:replicatorElementExemplarProperty proc:processDefSteps;
     mm:replicatorElementReplicaProperty proc:processExecSteps.
 
+proc:ProcessReplicatorNextStep rdf:type mm:ReplicatorCrossReference;
+    mm:replicatorCrossReferenceReplicator proc:ProcessReplicator;
+    mm:replicatorCrossReferenceExemplarProperty proc:nextStepDef;
+    mm:replicatorCrossReferenceReplicaProperty proc:nextStepExec.
+
 proc:StepReplicator rdf:type mm:Replicator;
     mm:replicatorExemplarType proc:StepDef;
     mm:replicatorReplicaType proc:StepExec.
@@ -80,3 +89,4 @@ proc:StepReplicatorElement rdf:type mm:ReplicatorElement;
     mm:replicatorElementReplicator proc:StepReplicator;
     mm:replicatorElementExemplarProperty proc:subStepDefs;
     mm:replicatorElementReplicaProperty proc:subStepExecs.
+

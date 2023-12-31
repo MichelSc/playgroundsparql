@@ -1388,6 +1388,16 @@ Id: scm_uni_2
 // The Semantics of Replicator
 // ========================================================================
 
+Id: replicator_element_exemplar_prop
+  re <mm:replicatorElementExemplarProperty> elem0
+  -------------------------------
+  elem0 <rdfs:subPropertyOf> <mm:elements>
+
+Id: replicator_element_replica_prop
+  re <mm:replicatorElementReplicaProperty> elem1
+  -------------------------------
+  elem1 <rdfs:subPropertyOf> <mm:elements>
+
 Id: replicator_element
   r <mm:replicatorExemplarType> a0t
   r <mm:replicatorReplicaType> a1t
@@ -1401,4 +1411,23 @@ Id: replicator_element
   -------------------------------
   a1 elem1 b1
   b1 <mm:definition> b0
+
+Id: replicator_crossreference
+  r <mm:replicatorExemplarType> a0t
+  r <mm:replicatorReplicaType> a1t
+  re <mm:replicatorCrossReferenceReplicator> r
+  re <mm:replicatorCrossReferenceExemplarProperty> prop0
+  re <mm:replicatorCrossReferenceReplicaProperty> prop1
+  a0 <rdf:type> a0t
+  a0 <mm:allElements> b0a
+  a0 <mm:allElements> b0b
+  b0a prop0 b0b
+  a1 <rdf:type> a1t
+  a1 <mm:definition> a0
+  a1 <mm:allElements> b1a
+  b1a <mm:definition> b0a
+  a1 <mm:allElements> b1b
+  b1b <mm:definition> b0b
+  -------------------------------
+  b1a prop1 b1b
 }

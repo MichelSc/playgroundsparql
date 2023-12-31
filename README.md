@@ -25,14 +25,7 @@ sudo usermod -aG docker $USER
     - if observable o2 is a subclass of observable o1, then it inherits its contexts (and therefore its dimensions)
     - (we do the same when we instantiate a Class: we get all the attribute definitions from all superclasses)
 - replica ontology
-  - mm:elements
-    - use generic mm:elements or specific property
-    - rely or type or on property to trigger the rule
-    - present choice: use mm:elements and rely on type
-    - possible alternative: remove mm:elements
-      - TODO evaluate
-    - middle way: derive rdf:subPropertyOf mm:elements
-      - this make it transparent for the adpoter
-  - possible solution
-    - impose props
-    - leave types as optionals
+  - possible extension
+    - add optional exemplar/replica element types
+      - if present, must match
+      - if not, as presently

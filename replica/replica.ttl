@@ -25,7 +25,6 @@ mm:allElements rdf:type owl:TransitiveProperty.
 
 mm:Replicator rdf:type rdfs:Class.
 
-
 mm:replicatorExemplarType rdf:type rdf:Property;
     rdfs:domain mm:Replicator;
     rdfs:range owl:Class.
@@ -48,7 +47,17 @@ mm:replicatorElementReplicaProperty rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
     rdfs:range owl:ObjectProperty.
 
-# TODO
 mm:ReplicatorCrossReference rdf:type rdfs:Class.
 
+mm:replicatorCrossReferenceReplicator rdf:type rdf:Property;
+    rdfs:domain mm:ReplicatorCrossReference;
+    rdfs:range mm:Replicator.
+
+mm:replicatorCrossReferenceExemplarProperty rdf:type rdf:Property;
+    rdfs:domain mm:ReplicatorCrossReference;
+    rdfs:range owl:ObjectProperty.
+
+mm:replicatorCrossReferenceReplicaProperty rdf:type rdf:Property;
+    rdfs:domain mm:ReplicatorCrossReference;
+    rdfs:range owl:ObjectProperty.
 

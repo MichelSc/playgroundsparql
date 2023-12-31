@@ -23,7 +23,8 @@ proc:DS1
     proc:subStepDefs proc:DS2.
 
 proc:DS2
-    proc:name "S2".
+    proc:name "S2";
+    proc:nextStepDef proc:DS1.
 
 proc:EP11
     rdf:type proc:ProcessExec;
