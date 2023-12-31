@@ -15,7 +15,7 @@
 
 proc:ProcessElement rdf:type owl:Class.
 
-proc:processName rdf:type owl:DatatypeProperty;
+proc:name rdf:type owl:DatatypeProperty;
     rdfs:domain proc:ProcessElement;
     rdfs:range xsd:string.
 
