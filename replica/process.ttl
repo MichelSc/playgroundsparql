@@ -70,4 +70,13 @@ proc:ProcessReplicator rdf:type mm:Replicator;
 proc:ProcessReplicatorElement rdf:type mm:ReplicatorElement;
     mm:replicatorElementReplicator proc:ProcessReplicator;
     mm:replicatorElementExemplarType proc:StepDef;
+    mm:replicatorElementProperty proc:processExecSteps.
+
+proc:StepReplicator rdf:type mm:Replicator;
+    mm:replicatorExemplarType proc:StepDef;
+    mm:replicatorReplicaType proc:StepExec.
+
+proc:StepReplicatorElement rdf:type mm:ReplicatorElement;
+    mm:replicatorElementReplicator proc:StepReplicator;
+    mm:replicatorElementExemplarType proc:StepDef;
     mm:replicatorElementProperty proc:subStepExecs.
