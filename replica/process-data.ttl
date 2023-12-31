@@ -13,11 +13,17 @@
 #    ProcessDef  data (for illustration)
 #################################################################
 
-proc:P1 
+proc:DP1 
     rdf:type proc:ProcessDef;
     proc:name "P1";
     proc:processDefSteps proc:S1.
 
-proc:S1
+proc:DS1
     rdf:type proc:StepDef;
     proc:name "S1".
+
+proc:EP11
+    rdf:type proc:ProcessExec;
+    mm:definition proc:DP1.
+
+    

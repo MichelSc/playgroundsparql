@@ -90,6 +90,7 @@ Prefices
      owl      :  http://www.w3.org/2002/07/owl#
      xsd      :  http://www.w3.org/2001/XMLSchema#
      onto     :  http://www.ontotext.com/
+     mm       :  http://www.flandersmake.be/ontology/mm#
 }
 
 Axioms
@@ -1387,13 +1388,13 @@ Id: scm_uni_2
 // The Semantics of Replicator
 // ========================================================================
 
-Id: replicator-element
+Id: replicator_element
+  r <mm:replicatorExemplarType> a0t
+  r <mm:replicatorReplicaType> a1t
   re <mm:replicatorElementReplicator> r
   re <mm:replicatorElementExemplarType> b0t
   re <mm:replicatorElementReplicaType> b1t
-  r <mm:replicatorExemplarType> a0t
-  r <mm:replicatorReplicaType> a1t
-  a1 <rdf:type> a0t
+  a0 <rdf:type> a0t
   a0 <mm:elements> b0
   b0 <rdf:type> b0t
   a1 <rdf:type> a1t
@@ -1402,7 +1403,4 @@ Id: replicator-element
   a1 <mm:elements> b1
   b1 <rdf:type> b1t
   b1 <mm:definition> b0
-
-
-
 }
