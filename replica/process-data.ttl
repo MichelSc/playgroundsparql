@@ -16,7 +16,7 @@
 proc:DP1 
     rdf:type proc:ProcessDef;
     proc:name "P1";
-    proc:processDefSteps proc:S1.
+    proc:processDefSteps proc:DS1.
 
 proc:DS1
     rdf:type proc:StepDef;

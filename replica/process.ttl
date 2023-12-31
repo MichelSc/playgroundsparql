@@ -27,17 +27,17 @@ proc:ProcessDef rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:processDefSteps rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:Elements;
+    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:ProcessDef;
-    rdfs:range owl:StepDef.
+    rdfs:range proc:StepDef.
 
 proc:StepDef rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:subStepDefs rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:Elements;
+    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:StepDef;
-    rdfs:range owl:StepDef.
+    rdfs:range proc:StepDef.
 
 #################################################################
 #    Process Execution ontology
@@ -47,17 +47,17 @@ proc:ProcessExec rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:processExecSteps rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:Elements;
+    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:ProcessExec;
-    rdfs:range owl:StepExec.
+    rdfs:range proc:StepExec.
 
 proc:StepExec rdf:type owl:Class;
     rdfs:subClassOf proc:ProcessElement.
 
 proc:subStepExecs rdf:type rdf:Property;
-    rdfs:subPropertyOf mm:Elements;
+    rdfs:subPropertyOf mm:elements;
     rdfs:domain proc:StepExec;
-    rdfs:range owl:StepExec.
+    rdfs:range proc:StepExec.
 
 #################################################################
 #    Process Replication Execution from Definition
