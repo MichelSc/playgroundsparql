@@ -40,11 +40,11 @@ mm:replicatorElementReplicator rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
     rdfs:range mm:Replicator.
 
-mm:replicatorElementExemplarType rdf:type rdf:Property;
+mm:replicatorElementExemplarProperty rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
-    rdfs:range owl:Class.
+    rdfs:range owl:ObjectProperty.
 
-mm:replicatorElementProperty rdf:type rdf:Property;
+mm:replicatorElementReplicaProperty rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
     rdfs:range owl:ObjectProperty.
 

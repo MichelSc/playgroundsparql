@@ -33,5 +33,6 @@ sudo usermod -aG docker $USER
       - TODO evaluate
     - middle way: derive rdf:subPropertyOf mm:elements
       - this make it transparent for the adpoter
-  - recursivity
-    - TODO: replicator for substeps
+  - possible solution
+    - impose props
+    - leave types as optionals
