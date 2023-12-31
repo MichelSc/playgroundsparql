@@ -32,9 +32,9 @@ mm:replicatorElementExemplarType rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
     rdfs:range owl:Class.
 
-mm:replicatorElementReplicaType rdf:type rdf:Property;
+mm:replicatorElementProperty rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorElement;
-    rdfs:range owl:Class.
+    rdfs:range owl:ObjectProperty.
 
 # TODO
 mm:ReplicatorCrossReference rdf:type rdfs:Class.

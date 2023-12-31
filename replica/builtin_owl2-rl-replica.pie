@@ -1393,14 +1393,13 @@ Id: replicator_element
   r <mm:replicatorReplicaType> a1t
   re <mm:replicatorElementReplicator> r
   re <mm:replicatorElementExemplarType> b0t
-  re <mm:replicatorElementReplicaType> b1t
+  re <mm:replicatorElementProperty> prop
   a0 <rdf:type> a0t
   a0 <mm:elements> b0
   b0 <rdf:type> b0t
   a1 <rdf:type> a1t
   a1 <mm:definition> a0
   -------------------------------
-  a1 <mm:elements> b1
-  b1 <rdf:type> b1t
+  a1 prop b1
   b1 <mm:definition> b0
 }
