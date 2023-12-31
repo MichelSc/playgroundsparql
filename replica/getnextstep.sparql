@@ -7,5 +7,9 @@ PREFIX proc: <http://www.flandersmake.be/ontology/proc#>
 
 SELECT * 
 WHERE {
-    proc:EP11 mm:elements ?e.
+    ?a proc:nextStepExec ?b.
+    ?a mm:definition ?ad.
+    ?ad proc:name ?an.
+    ?b mm:definition ?bd.
+    ?bd proc:name ?bn.
 }
