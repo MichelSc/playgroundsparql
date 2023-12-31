@@ -8,11 +8,23 @@
 
 <http://www.flandersmake.be/ontology/replicator/spec> rdf:type owl:Ontology .
 
+
+#################################################################
+#    Ownership hierarchy
+#################################################################
+
+mm:elements 
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf mm:allElements.
+
+mm:allElements rdf:type owl:TransitiveProperty.
+
 #################################################################
 #    Replicator ontology
 #################################################################
 
 mm:Replicator rdf:type rdfs:Class.
+
 
 mm:replicatorExemplarType rdf:type rdf:Property;
     rdfs:domain mm:Replicator;
