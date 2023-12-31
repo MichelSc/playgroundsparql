@@ -9,7 +9,7 @@ Add user to group docker
 ``` bash
 sudo usermod -aG docker $USER
 ```
-## issues or questions
+## issues or questions or TODO's
 
 - todo: rules for DimensionDimension concept
 - KGExplore
@@ -31,3 +31,5 @@ sudo usermod -aG docker $USER
     - present choice: use mm:elements and rely on type
     - possible alternative: remove mm:elements
       - TODO evaluate
+  - recursivity
+    - TODO: replicator for substeps
