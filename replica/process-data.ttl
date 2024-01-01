@@ -16,15 +16,25 @@
 proc:DP1 
     rdf:type proc:ProcessDef;
     proc:name "P1";
-    proc:processDefSteps proc:DS1.
+    proc:processDefSteps proc:DS1;
+    proc:processDefSteps proc:DS2.
 
 proc:DS1
     proc:name "S1";
-    proc:subStepDefs proc:DS2.
+    proc:subStepDefs proc:DS3;
+    proc:subStepDefs proc:DS4.
 
 proc:DS2
     proc:name "S2";
     proc:nextStepDef proc:DS1.
+
+proc:DS3
+    proc:name "S3";
+    proc:nextStepDef proc:DS1.
+
+proc:DS4
+    proc:name "S4";
+    proc:nextStepDef proc:DS3.
 
 proc:EP11
     rdf:type proc:ProcessExec;

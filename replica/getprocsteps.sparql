@@ -5,8 +5,15 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX mm: <http://www.flandersmake.be/ontology/mm#> 
 PREFIX proc: <http://www.flandersmake.be/ontology/proc#> 
 
-SELECT * 
+SELECT ?en ?pn
 WHERE {
     proc:EP11 mm:allElements ?e.
+    ?e mm:definition ?ed.
+    ?ed proc:name ?en.
+    OPTIONAL {
+        ?p mm:elements ?e.
+        ?p mm:definition ?pd.
+	    ?pd proc:name ?pn.
+    }
 }
 
