@@ -10,8 +10,11 @@
 
 
 #################################################################
-#    Ownership hierarchy
+#    Ownership/Definition hierarchy
 #################################################################
+
+mm:definition 
+    rdf:type owl:ObjectProperty;
 
 mm:elements 
     rdf:type owl:ObjectProperty;

@@ -13,6 +13,7 @@
 #    ProcessDef  data (for illustration)
 #################################################################
 
+# defintions
 proc:DP1 
     rdf:type proc:ProcessDef;
     proc:name "P1";
@@ -36,6 +37,7 @@ proc:DS4
     proc:name "S4";
     proc:nextStepDef proc:DS3.
 
+# executions
 proc:EP11
     rdf:type proc:ProcessExec;
     mm:definition proc:DP1.
