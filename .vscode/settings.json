@@ -1,16 +1,4 @@
 {
-    "sparql-executor.endpoints": [
-        {
-            "protocol": "http",
-            "host": "localhost:7200",
-            "path": "/repositories/mich-test-5",
-            "name": "michel observable",
-            "customHeaders": [],
-            "method": "GET",
-            "queryParameterName": "query",
-            "output": "table"
-        }
-],
 "files.associations": {
     "*.rj": "json"
 }
