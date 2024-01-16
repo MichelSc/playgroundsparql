@@ -4,10 +4,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 PREFIX mm: <http://www.flandersmake.be/ontology/mm#> 
 PREFIX proc: <http://www.flandersmake.be/ontology/proc#> 
+PREFIX : <http://www.flandersmake.be/ontology/mich#> 
 
-SELECT ?en ?pn ?nn
+SELECT ?name ?en ?pn ?nn
 WHERE {
-    proc:EP11 mm:allElements ?e.
+    ?exec rdf:type proc:ProcessExec.
+    ?exec proc:name ?name.
+    ?exec mm:allElements ?e.
     ?e mm:definition ?ed.
     ?ed proc:name ?en.
     ?p mm:elements ?e.
@@ -19,4 +22,3 @@ WHERE {
 	    ?nd proc:name ?nn.
     }
 }
-

@@ -14,32 +14,32 @@
 #################################################################
 
 # defintions
-proc:DP1 
+:Gluing 
     rdf:type proc:ProcessDef;
-    proc:name "P1";
-    proc:processDefSteps proc:DS1;
-    proc:processDefSteps proc:DS2.
+    proc:name "Gluing";
+    proc:processDefSteps :Curing;
+    proc:processDefSteps :Application.
 
-proc:DS1
-    proc:name "S1";
-    proc:subStepDefs proc:DS3;
-    proc:subStepDefs proc:DS4.
+:Curing
+    proc:name "Curing";
+    proc:subStepDefs :CuringA;
+    proc:subStepDefs :CuringB.
 
-proc:DS2
-    proc:name "S2";
-    proc:nextStepDef proc:DS1.
+:CuringA
+    proc:name "CuringA".
 
-proc:DS3
-    proc:name "S3";
-    proc:nextStepDef proc:DS1.
+:CuringB
+    proc:name "CuringB";
+    proc:nextStepDef :CuringA.
 
-proc:DS4
-    proc:name "S4";
-    proc:nextStepDef proc:DS3.
+:Application
+    proc:name "Application";
+    proc:nextStepDef :Curing.
 
 # executions
-proc:EP11
+:Gluing1
     rdf:type proc:ProcessExec;
-    mm:definition proc:DP1.
+    proc:name "Gluing sample 1 20240125";
+    mm:definition :Gluing.
 
     

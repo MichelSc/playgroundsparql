@@ -14,7 +14,7 @@
 #################################################################
 
 mm:definition 
-    rdf:type owl:ObjectProperty;
+    rdf:type owl:ObjectProperty.
 
 mm:elements 
     rdf:type owl:ObjectProperty;
@@ -63,4 +63,3 @@ mm:replicatorCrossReferenceExemplarProperty rdf:type rdf:Property;
 mm:replicatorCrossReferenceReplicaProperty rdf:type rdf:Property;
     rdfs:domain mm:ReplicatorCrossReference;
     rdfs:range owl:ObjectProperty.
-
