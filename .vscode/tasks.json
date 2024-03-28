@@ -4,14 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "W0: Fix network",
-            "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S ~/scripts/fixwsl.sh",
-        },
-        {
             "label": "W1: Start docker",
             "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S service docker start",
+            "command": ". ~/.secrets; echo $ROOT_PWD | sudo -S service docker start",
         },
         {
             "label": "W2a: Start graphdb",
@@ -21,18 +16,18 @@
         {
             "label": "W2b: Restart graphdb",
             "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
+            "command": ". .env; . ~/.secrets; echo $ROOT_PWD | sudo -S docker start $GRAPHDB_CONTAINER"
         },
         {
             "label": "W3: Stop graphdb",
             "type": "shell",
-            "command": ". .env; echo $ROOT_PWD | sudo -S docker stop $GRAPHDB_CONTAINER",
+            "command": ". .env; . ~/.secrets; echo $ROOT_PWD | sudo -S docker stop $GRAPHDB_CONTAINER",
             "problemMatcher": []
         },
         {
             "label": "V1: Start KGExplore",
             "type": "shell",
-            "options": {"cwd": "${workspaceFolder}/../assistant/Ontology-based-KG-Viz/glsp-client"},
+            "options": {"cwd": "${workspaceFolder}/../assistant/Ontology-based-KG-Viz2"},
             "command": "yarn start",
             "problemMatcher": []
         },

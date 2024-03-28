@@ -1,11 +1,14 @@
 {
 	"folders": [
-		{
-			"path": "."
-		},
+        {
+            "path": "."
+        },
         {
             "name": "ontology",
             "path": "../assistant/Ontology-based-KG-Viz/ontology"
+        },
+        {
+            "path": "../flexmosys/ftg"
         }
     ],
     "settings": {
